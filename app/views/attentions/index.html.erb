@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+    </header>
+
+
+
+
+    <section>
+
+
+<% if @attention.empty? %>
+<%= "no existen atenciones registradas" %>
+
+
+<%else%>
+<%= "Atenciones registradas actualmente" %>
+
+  <table class="navbar-dark bg-dark" >
+
+  <tr>
+    <th>id</td>
+    <th>Fecha de atencion</th>
+    <th>Duracion de atencion (HORAS)</th>
+    <th>Cliente</th>
+    <th>Profesional</th>
+    <th>Descripcion</th>
+    <th>VER</th>
+    <th>EDITAR</th>
+    <th>ELIMINAR</th>
+  </tr>
+
+
+<% @attention.each do |attention|  %>
+<tr>
+  <% @professional = attention.professional_id %>
+  <% @client = attention.client_id %>
+
+
+  <td><%= attention.id %></td>
+  <td><%= attention.attention_date %></td>
+  <td><%= attention.attention_time %></td>
+  <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
+  <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
+  <td><%= attention.description %></td>
+  <td><%= link_to 'VER', attention_path(attention)%> </td>
+  <td><%= link_to 'EDITAR', edit_attention_path(attention) %> </td>
+  <td><%= link_to 'ELIMINAR', attention ,   :method => :delete,  data: { confirm: "Are you sure?"} %></td>
+ </tr>
+
+  <%end%>
+
+
+  <%end%>
+  </table>
+
+
+
+
+</section>
+</body>
+<style>
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+table {
+    border-spacing: 15px;
+}
+section{
+  margin: 20px;
+}
+</style>

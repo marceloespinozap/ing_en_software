@@ -1,0 +1,30 @@
+<%= form_for(@preexistenceclient) do |f| %>
+   
+<% @users = User.all %>
+<% @clients = Client.all %>
+<% @preexistences = Preexistence.all %>
+
+<%if @clients.empty? %>
+<%= "no existen clientes creados" %>
+<br>
+<%else %>
+
+<%= f.label :client_id%>
+<%= f.select (:client_id)  do%>
+<% @clients.each do |client| %>
+  <% @client = client.id %>
+  <%= content_tag(:option, User.find(client.user_id).nombre, value: @client) %>
+    <% end %>
+      <% end %>
+      <% end %>
+
+<%= f.label :preexistence_id %>
+<%= f.select (:preexistence_id)  do%>
+<% @preexistences.each do |preexistence| %>
+  <% @preexistence = preexistence.id %>
+  <%= content_tag(:option, Preexistence.find(@preexistence).name, value: @preexistence) %>
+    <% end %>
+      <% end %>
+
+<%= f.submit"guardar" %>
+<% end %>

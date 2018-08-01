@@ -1,0 +1,69 @@
+
+
+<section>
+
+
+<% if @professional.empty? %>
+<%= "no existen profesionales registrados registradas" %>
+
+
+<%else%>
+
+<%= "profesionales registrados actualmente" %>
+
+
+  <table class="navbar-dark bg-dark">
+
+  <tr>
+    <th>id</td>
+    <th>specialidad</th>
+    <th>inicio </th>
+    <th>final</th>
+    <th>contrato</th>
+    <th>profesional</th>
+    <th>VER</th>
+    <th>EDITAR</th>
+    <th>ELIMINAR</th>
+  </tr>
+
+
+<% @professional.each do |professional|  %>
+<tr>
+
+
+  <td><%= professional.id %></td>
+  <td><%= Specialty.find(professional.specialty_id).name %></td>
+  <td><%= professional.start_contract %></td>
+  <td><%= professional.end_contract %></td>
+  <td><%= professional.type_contract %></td>
+  <td><%=  User.find(professional.user_id).nombre  %></td>
+  <td><%= link_to 'VER', professional_path(professional)%> </td>
+  <td><%= link_to 'EDITAR', edit_professional_path(professional) %> </td>
+    <td><%= link_to 'ELIMINAR', professional ,   :method => :delete,  data: { confirm: "esta seguro que desea eliminar el registro?"} %></td>
+
+ </tr>
+
+<% end %>
+  <%end%>
+
+
+  </table>
+</section>
+
+  <center>
+    <%= link_to "Crear profesional", new_professional_path, class:"btn btn-primary"%>
+  </center>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    border-spacing: 15px;
+}
+table {
+    border-spacing: 15px;
+}
+section{
+  margin: 20px;
+}
+</style>

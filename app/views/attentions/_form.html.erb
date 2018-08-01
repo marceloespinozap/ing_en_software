@@ -1,0 +1,75 @@
+<%= form_for(@attention) do |f| %>
+   
+
+<% @a=Client.all %>
+<% @b=Professional.all %>
+
+
+<% if @a.empty? && @b.empty?	%>
+<%= "no existen clientes ni profesionales creados" %>
+<%= "primero debes crear a lo menos un perfil de cliente y un perfil de profesional" %>
+<% else %>
+
+<% if @a.empty?	%>
+<%= "no existe clientes creados para recibir atencion" %>
+<%= "primero debes crear un cliente" %>
+<% else %>
+
+<% if @b.empty?	%>
+<%= "no existe profesionales creados para entregar atencion" %>
+<%= "primero debes crear un profesional" %>
+<% else%>
+
+
+
+
+ <%= f.label :id_cliente %>
+<%= f.select (:client_id) do %>
+<% @a.each do |c| %>
+  <% @client = c.id %>
+  <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
+    <% end %>
+      <% end %>
+
+<br>
+
+<%= f.label :id_professional %>
+<%= f.select (:professional_id) do %>
+<% @b.each do |c| %>
+  <% @professional = c.id %>
+
+      <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
+      <% end %>
+    <% end %>
+
+<br>
+
+    
+
+
+<%= f.label :Fecha_de_atencion_ %>
+<%= f.text_field :attention_date %>
+
+<br>
+<%= f.label :Duracion_de_la_atencion_%>
+    <%= f.select :attention_time, [ '0,5','1','1,5', '2', '2,5' ], :prompt => 'horas' %>
+
+<br>
+
+<%= f.label :Diagnostico_ %>
+<%= f.text_area :description %>
+
+
+
+
+
+<br>
+
+
+<%= f.submit"guardar" %>
+
+<%= link_to 'volver' , attentions_path%>
+
+<% end %>
+<% end %>
+<% end %><% end %>

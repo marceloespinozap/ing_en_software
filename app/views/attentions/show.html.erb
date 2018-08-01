@@ -1,0 +1,21 @@
+<%= 'id cliente:'%> 
+<%= @attention.client_id %><br>
+
+<%= 'id proffesional:'%>
+<%= @attention.professional_id %><br>
+
+<%= 'id atencion:'%>
+<%= @attention.id %><br>
+
+<%= 'fecha de atencion:'%>
+<%= @attention.attention_date %><br>
+
+<%= 'duracion de atencion:'%>
+<%= @attention.attention_time %>
+<%= ' horas'%><br>
+
+
+
+<%= 'descripcion:'%>
+<%= @attention.description %><br>
+<%= link_to 'volver' , attentions_path%>

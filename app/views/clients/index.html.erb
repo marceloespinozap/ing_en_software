@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+    <section>
+
+
+<% if @client.empty? %>
+<%= "no existen clientes registrados registradas" %>
+<%= link_to "añadir informacion a cliente", new_client_path, :class =>"nav-link"%>
+
+
+<%else%>
+
+<%= "clientes registrados actualmente" %>
+
+
+
+
+<%= link_to "añadir informacion a cliente", new_client_path, :class =>"nav-link"%>
+
+  <table class="table table-dark">
+
+  <tr>
+    <th>id</td>
+    <th>user id</th>
+    <th>prevision</th>
+    <th>nombre id</th>
+    <th>VER</th>
+    <th>EDITAR</th>
+    <th>ELIMINAR</th>
+  </tr>
+
+
+<% @client.each do |client|  %>
+<tr>
+
+
+
+
+  <td><%= client.id %></td>
+  <td><%= client.prevision    %></td>
+  <td><%=  User.find(client.user_id).nombre  %></td>
+ <td><%= link_to 'PREEXISTENCIAS', :controller => 'preexistenceclients', :id => client.id%> </td>
+
+  <td><%= link_to 'VER', client_path(client)%> </td>
+  <td><%= link_to 'EDITAR', edit_client_path(client) %>
+    <td><%= link_to 'ELIMINAR', client ,   :method => :delete,  data: { confirm: "Are you sure?"} %></td>
+ </td>
+ </tr>
+
+  <%end%>
+
+  <%end%>
+
+  </table>
+</section>

@@ -1,0 +1,62 @@
+
+
+
+<% if @preexistenceclient.empty? %>
+<%= "no existen  registrados " %>
+<%= link_to "añadir preexistencia", new_preexistenceclient_path, :class =>"nav-link"%>
+
+
+<%else%>
+
+
+
+
+  <table class="navbar-dark bg-dark" >
+
+
+  <tr>
+    <th>id</td>
+    <th>cliente</th>
+    <th>preexistencia</th>
+    <th>VER</th>
+    <th>EDITAR</th>
+    <th>ELIMINAR</th>
+  </tr>
+
+<% @preexistenceclient.each do |preexistenceclient|  %>
+<tr>
+<% if preexistenceclient.client_id == @client_id  %>
+
+
+
+  <td><%= preexistenceclient.id %></td>
+
+<% if preexistenceclient.client_id == 'nil' %>
+
+<td><%= "no existe cliente" %></td>
+
+
+<%else %>
+
+  <td><%= User.find(Client.find(preexistenceclient.client_id).user_id).nombre %></td>
+<%end%>
+<br>
+<% if preexistenceclient.preexistence_id == 'nil' %>
+
+<td><%= "no existe cliente" %></td>
+
+
+<%else %>
+  <td><%= Preexistence.find(preexistenceclient.preexistence_id).name %></td>
+<%end%>
+
+  <td><%= link_to 'VER', preexistenceclient_path(preexistenceclient)%> </td>
+  <td><%= link_to 'EDITAR', edit_preexistenceclient_path(preexistenceclient) %> </td>
+    <td><%= link_to 'ELIMINAR', preexistenceclient ,   :method => :delete,  data: { confirm: "esta seguro?"} %></td>
+
+  <%end%>
+    <%end%>
+  <%= link_to "añadir informacion a cliente", new_preexistenceclient_path, :class =>"nav-link"%>
+    <%end%>
+
+   </tr>

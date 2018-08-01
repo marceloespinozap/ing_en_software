@@ -1,0 +1,42 @@
+<%= form_for(@professional) do |f| %>
+   
+<% @users = User.all %>
+<% @specialty = Specialty.all %>
+
+
+
+<%= f.label :user_id%>
+<%= f.select (:user_id)  do%>
+<% @users.each do |user| %>
+  <% @user = user.id %>
+  <%= content_tag(:option, User.find(@user).nombre, value: @user) %>
+    <% end %>
+      <% end %>
+
+
+<br>
+
+ 
+<%= f.label :type_contract %>
+<%= f.text_field :type_contract %>
+
+<br>
+<%= f.label :specialty %>
+<%= f.select (:specialty_id)  do%>
+<% @specialty.each do |specialty| %>
+  <% @specialty = specialty.id %>
+
+  <%= content_tag(:option, Specialty.find(@specialty).name, value: @specialty) %>
+    <% end %>
+      <% end %>
+
+<br>
+<%= f.label :start_contract %>
+<%= f.text_field :start_contract %>
+<br>
+<%= f.label :end_contract %>
+<%= f.text_field :end_contract %>
+
+
+<%= f.submit"guardar" %>
+<% end %>
