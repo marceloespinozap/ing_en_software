@@ -3,7 +3,18 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
- , : , :
+
+
+  <div class="field">
+    <%= f.label :role %><br />
+  <%= f.select (:role)  do%>
+  <% [['Administrador ', 'admin'], ['Profesional', 'professional'], ['cliente', 'client']].each do |c| %>
+    <%= content_tag(:option, c.first, value: c.last, autofocus: true) %>
+  <% end %>
+
+  <%end%>
+  </div>
+  
   <div class="field">
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre , autofocus: true%>

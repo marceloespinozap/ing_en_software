@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180727043420) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.inet "prevision"
+    t.integer "prevision"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

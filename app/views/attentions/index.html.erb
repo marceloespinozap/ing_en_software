@@ -30,10 +30,23 @@
     <th>Cliente</th>
     <th>Profesional</th>
     <th>Descripcion</th>
-    <th>VER</th>
+
+
+
+<% if can? :read , :attention%>
+          <th>VER</th>
+
+<% end %>
+ <% if can? :update, :attention %>
     <th>EDITAR</th>
-    <th>ELIMINAR</th>
+
+<% end %>
+ <% if can? :delete,:attention %>
+     <th>ELIMINAR</th>
+
+<% end %>
   </tr>
+
 
 
 <% @attention.each do |attention|  %>
@@ -48,9 +61,15 @@
   <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
   <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
   <td><%= attention.description %></td>
-  <td><%= link_to 'VER', attention_path(attention)%> </td>
-  <td><%= link_to 'EDITAR', edit_attention_path(attention) %> </td>
-  <td><%= link_to 'ELIMINAR', attention ,   :method => :delete,  data: { confirm: "Are you sure?"} %></td>
+    <% if can? :read, attention %>
+  <td><%= link_to 'Ver', attention_path(attention)%> </td>
+<% end %>
+ <% if can? :update, attention %>
+  <td><%= link_to 'Editar', edit_attention_path(attention) %> </td>
+<% end %>
+ <% if can? :delete, attention %>
+  <td><%= link_to 'Eliminar', attention ,   :method => :delete,  data: { confirm: "estas seguro?"} %></td>
+<% end %>
  </tr>
 
   <%end%>
