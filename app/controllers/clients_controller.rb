@@ -1,9 +1,9 @@
 class ClientsController < ApplicationController
-   before_action :set_attention, only: [:show, :delete, :edit,:update] 
+   before_action :set_attention, only: [:show, :delete, :edit,:update]
    def index
     @client = Client.all
   end
-  
+
   def new
   	@client = Client.new
   end
@@ -13,7 +13,7 @@ class ClientsController < ApplicationController
         redirect_to clients_path
       else
         redirect_to clients_path
-       end	
+       end
 end
 
  def destroy
@@ -45,5 +45,5 @@ def client_params
   def set_client
       @client = Client.find(params[:id])
   end
-  
+
 end

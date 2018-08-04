@@ -4,7 +4,8 @@
 
 
 <% if @client.empty? %>
-<%= "no existen clientes registrados registradas" %>
+
+<div class="alert alert-warning" role="alert"> no existen clientes registrados registradas </div>'
 <%= link_to "añadir informacion a cliente", new_client_path, :class =>"nav-link"%>
 
 

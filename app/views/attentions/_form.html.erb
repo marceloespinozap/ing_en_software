@@ -1,13 +1,13 @@
 <%= form_for(@attention) do |f| %>
-   
+
 
 <% @a=Client.all %>
 <% @b=Professional.all %>
 
 
 <% if @a.empty? && @b.empty?	%>
-<%= "no existen clientes ni profesionales creados" %>
-<%= "primero debes crear a lo menos un perfil de cliente y un perfil de profesional" %>
+<div class="alert alert-warning" role="alert"> no existen clientes registrados registradas. Primero debes crear a lo menos un perfil de cliente y un perfil de profesional </div>
+
 <% else %>
 
 <% if @a.empty?	%>
@@ -53,7 +53,7 @@
 
 <br>
 
-    
+
 
 
 <%= f.label :Fecha_de_atencion_ %>
