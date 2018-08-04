@@ -22,12 +22,18 @@
       <li class="nav-item active">
         <a class="nav-link " href="<%= url_for(action: 'index', controller: 'professionals') %>">Index</a>
       </li>
+      <li class="nav-item active">
+          <%= link_to "informacion cliente  ", clients_path,:class =>"nav-link" %>
+      </li>
       <li class="nav-item">
           <a class="nav-link " href="<%= url_for(action: 'panel', controller: 'professionals') %>">Panel</a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/sign_out">Salir</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
