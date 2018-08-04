@@ -36,15 +36,16 @@
   <%= form_for(@client) do |f| %>
 
 <% @users = User.all %>
+<% @clients = Client.all %>
 
 <%= f.label :user_id%>
 <%= f.select (:user_id)  do%>
 <% @users.each do |c| %>
-  <% @user = c.id %>
-  <%= content_tag(:option, User.find(@user).nombre, value: c.id) %>  <%= content_tag(:option, User.find(@user).nombre, value: c.id) %>    <% end %>
-      <% end %>
+<% @user = c.id %>
 
-
+<%= content_tag(:option, User.find(@user).nombre, value: c.id) %>      
+<% end %>
+<% end %>
 
 
 <div class="container">

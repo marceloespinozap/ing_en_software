@@ -21,19 +21,27 @@
 <% else%>
 
 
+    <%= f.label :id_cliente %>
+  
+ 	<%= f.select (:client_id) do %>
 
-
- <%= f.label :id_cliente %>
-<%= f.select (:client_id) do %>
-<% @a.each do |c| %>
-  <% @client = c.id %>
-  <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
+    <% @a.each do |c| %>
+  	<% @client = c.id %>
+	
+  	<%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
     <% end %>
-      <% end %>
+    <% end %>
+
+
+
 
 <br>
 
 <%= f.label :id_professional %>
+<% if current_user.role == "professional"%>
+<%= f.select :professional_id, [current_user.nombre ] %>
+<%= "tipo de usuario: Profesional" %>
+<% else %>
 <%= f.select (:professional_id) do %>
 <% @b.each do |c| %>
   <% @professional = c.id %>
@@ -41,6 +49,7 @@
       <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
       <% end %>
     <% end %>
+      <% end %> 
 
 <br>
 

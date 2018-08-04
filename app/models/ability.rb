@@ -12,7 +12,7 @@ class Ability
          can :manage, :all
      end
        if user.role =="professional"
-         can :manage, :attention
+         can :manage, :attentions
      end
       
        

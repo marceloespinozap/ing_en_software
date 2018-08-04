@@ -23,6 +23,16 @@
 
   <table class="navbar-dark bg-dark" >
 
+     <% if current_user.role == "client"%>
+      <% end %>
+
+      <% if current_user.role == "professional"%>
+      <%= "tipo de usuario: Profesional" %>
+      <% end %> 
+      
+      <% if current_user.role == "admin"%>
+      <%= "tipo de usuario: Administrador" %>
+      <% end %> 
   <tr>
     <th>id</td>
     <th>Fecha de atencion</th>
@@ -33,15 +43,15 @@
 
 
 
-<% if can? :read , :attention%>
+<% if can? :read , :attentions%>
           <th>VER</th>
 
 <% end %>
- <% if can? :update, :attention %>
+ <% if can? :update, :attentions %>
     <th>EDITAR</th>
 
 <% end %>
- <% if can? :delete,:attention %>
+ <% if can? :delete ,:attentions %>
      <th>ELIMINAR</th>
 
 <% end %>
@@ -61,13 +71,13 @@
   <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
   <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
   <td><%= attention.description %></td>
-    <% if can? :read, attention %>
+    <% if can? :read, :attentions %>
   <td><%= link_to 'Ver', attention_path(attention)%> </td>
 <% end %>
- <% if can? :update, attention %>
+ <% if can? :update, :attentions %>
   <td><%= link_to 'Editar', edit_attention_path(attention) %> </td>
 <% end %>
- <% if can? :delete, attention %>
+ <% if can? :delete, :attentions %>
   <td><%= link_to 'Eliminar', attention ,   :method => :delete,  data: { confirm: "estas seguro?"} %></td>
 <% end %>
  </tr>
