@@ -1,8 +1,11 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
+<div class="container">
+  
+  <h2>Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
 
   <div class="field">
@@ -19,14 +22,15 @@
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre , autofocus: true%>
   </div>
-  <div class="field">
+  <div class="field " style="width:200px;">
     <%= f.label :fecha_de_nacimiento %><br />
-    <%= f.text_field :fecha_nacimiento , autofocus: true%>
+    <%= f.date_field :fecha_nacimiento , autofocus: true ,:class=>"form-control" %>
   </div>
     <div class="field">
     <%= f.label :direccion %><br />
     <%= f.text_field :direccion , autofocus: true%>
   </div>
+
     <div class="field">
     <%= f.label :numero_contacto %><br />
     <%= f.text_field :numero_contacto , autofocus: true%>
@@ -54,5 +58,5 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</div>
