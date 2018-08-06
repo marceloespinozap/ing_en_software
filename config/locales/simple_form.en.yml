@@ -1,0 +1,9 @@
+en: 
+  simple_form: 
+    defaults: 
+      error_notification: 
+        default_message: "Please review the problems below:"
+        presence: Password
+    required: 
+      mark: "*"
+      text: required

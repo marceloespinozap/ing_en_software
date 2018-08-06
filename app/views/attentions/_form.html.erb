@@ -1,5 +1,4 @@
-<%= form_for(@attention) do |f| %>
-
+<%= simple_form_for @attention do |f| %>
 
 <% @a=Client.all %>
 <% @b=Professional.all %>
@@ -57,25 +56,25 @@
 
 
 <%= f.label :Fecha_de_atencion_ %>
-<%= f.text_field :attention_date %>
-
-<br>
-<%= f.label :Duracion_de_la_atencion_%>
-    <%= f.select :attention_time, [ '0,5','1','1,5', '2', '2,5' ], :prompt => 'horas' %>
-
-<br>
-
-<%= f.label :Diagnostico_ %>
-<%= f.text_area :description %>
-
-
-
+<%= f.input :attention_date %>
 
 
 <br>
+  <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'fecha de la atencion' %>
+
+<br>
+
+<%= f.input :description, label: 'Detallles de la atencion', error: 'la descripcion no puede estar vacia' %>
+
+<%= f.button :submit %>
 
 
-<%= f.submit"guardar" %>
+
+<br>
+
+
+<%= f.button :submit %>
+
 
 <%= link_to 'volver' , attentions_path%>
 

@@ -4,7 +4,7 @@ class CreateProfessionals < ActiveRecord::Migration[5.1]
       t.inet :specialty
       t.date :start_contract
       t.date :end_contract
-      t.inet :type_contract
+      t.integer :type_contract
 
       t.timestamps
     end

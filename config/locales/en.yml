@@ -30,14 +30,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              invalid: 'Must include uppercase & number'
-        client:
-          attributes:
-            user_id:
-              presence: "hola"
+  hello: "Hello world"

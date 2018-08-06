@@ -1,61 +1,21 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <header>
-    </header>
-    <nav>
-      <div class="container">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link " href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
-          </li>
-          <li class="nav-item">
-            <%= link_to "informacion cliente  ", clients_path,:class =>"nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "informacion profesional ", professionals_path, :class =>"nav-link "%>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/users/sign_out">Salir</a>
-          </li>
-
-        </ul>
-
-      </div>
-    </nav>
-
-<section>
-  <%= form_for(@client) do |f| %>
+  <%= simple_form_for  @client, validate: true do |f| %>
 
 <% @users = User.all %>
 <% @clients = Client.all %>
 
-<%= f.label :user_id%>
-<%= f.select (:user_id)  do%>
-<% @users.each do |c| %>
-<% @user = c.id %>
-
-<%= content_tag(:option, User.find(@user).nombre, value: c.id) %>      
-<% end %>
-<% end %>
-
-
 <div class="container">
 
 
+<%= f.input (:user_id) , :collection => @users ,:label_method => :nombre,:value_method => :id , :label => "usuario" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
+
+
+</div>
+<div class="container">
+
+
+
   <br>
-  <%= f.label :prevision%>
-  <%= f.select (:prevision)  do%>
-  <%= content_tag(:option, 'fonasa', value: 2) %>  
-     <% end %>
+  <%= f.input :prevision ,label: 'prevision', error: 'la descripcion no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
 
 
 </br>

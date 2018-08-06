@@ -18,6 +18,9 @@
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables
 
+//= require rails.validations
+//= require rails.validations.simple_form
+
 $(document).ready(function() {
     $('#attentions').DataTable();
 } );

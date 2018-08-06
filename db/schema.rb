@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180727043420) do
   create_table "professionals", force: :cascade do |t|
     t.date "start_contract"
     t.date "end_contract"
-    t.inet "type_contract"
+    t.integer "type_contract"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
