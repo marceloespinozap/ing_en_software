@@ -1,0 +1,86 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_self
+*= require dataTables/jquery.dataTables
+ *= require_tree .
+ */
+
+@import " bootstrap ";
+
+.aside-client{
+  background-color: #212529;
+  margin-top: 10px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+
+}
+
+.aside-client:hover{
+  background-color: #212529;
+  margin: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.aside-items-client{
+  color:white;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #343a40;
+  margin-top: 3px;
+
+
+}
+.aside-items-client:hover{
+  color:white;
+  text-align: center;
+  text-decoration: none;
+  background-color: #343a40;
+}
+.aside-link-client{
+  color: white;
+background-image: initial;
+background-repeat: initial;
+background-position: initial;
+-webkit-border-radius: initial;
+-moz-border-radius: initial;
+border-radius: initial;
+border-style: initial;
+border-width: initial;
+border-color: initial;
+background-color: initial;
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.5);
+  padding: 20px;
+}
+
+.aside-link-client:hover{
+
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+}
+.table-resp-cont{
+	overflow-x: auto;
+	width: 100%;
+
+}
+.table-resp{
+
+	color: #444;
+	border-collapse: collapse; /* borde se junta con el otro*/
+	margin-left: auto;
+    margin-right: auto;
+    min-width: 1000px;
+}

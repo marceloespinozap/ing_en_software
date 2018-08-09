@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   get 'clients/new'
 
   get 'professionals/panel' => 'professional/panel'
- #post 'user/attention/new'
-#get 'attention/index'
- #get 'attention/edit'
- #get 'attention/show'
- #get 'attention/_form'
+
 
   devise_for :users
   resources :attentions

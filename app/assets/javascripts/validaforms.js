@@ -27,4 +27,3 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#attentions2').DataTable();
 } );
-//principio de parnas de pruebas de sistemas
