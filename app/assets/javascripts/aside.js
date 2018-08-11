@@ -1,18 +1,33 @@
 function switch1(){
-var a=  document.getElementById("caca").className;
-  if(a=== "aside-link-client fas fa-angle-double-right"){
-    document.getElementById("caca").className="aside-link-client fas fa-angle-double-left";
-    document.getElementById("caca2").className="col-sm-2 aside-client";
-    document.getElementById("caca3").innerHTML="Chupalo";
-    document.getElementById("caca3").className="";
+var a=  document.getElementById("Last").className;
+  if(a== "aside-link-client fas fa-angle-double-right"){
+document.getElementById('Primero').className="aside-link-client";
+    document.getElementById("Primero").innerHTML=" Panel";
+    document.getElementById('Segundo').className="aside-link-client ";
+    document.getElementById("Segundo").innerHTML=" Profesionales";
+    document.getElementById('Tercero').className="aside-link-client";
+    document.getElementById("Tercero").innerHTML=" Clientes";
+
+    document.getElementById("Last").className="aside-link-client fas fa-angle-double-left";
+    document.getElementById("Switch").className="col-sm-2 aside-client";
+    document.getElementById("otro").className= "col-sm-10";
+
 
 
   }
   else {
-    document.getElementById("caca").className="aside-link-client fas fa-angle-double-right";
-    document.getElementById("caca2").className="col-sm-1 aside-client";
-    document.getElementById("caca3").innerHTML="";
-    document.getElementById("caca3").className="aside-link-client fas fa-address-book";
+    document.getElementById('Primero').className="aside-link-client fas fa-laptop";
+    document.getElementById("Primero").innerHTML="";
+    document.getElementById('Segundo').className="aside-link-client fas fa-user-tie";
+    document.getElementById("Segundo").innerHTML="";
+    document.getElementById("Tercero").className="aside-link-client fas fa-tired";
+    document.getElementById("Tercero").innerHTML="";
+    document.getElementById("Last").className="aside-link-client fas fa-angle-double-right";
+    document.getElementById("Switch").className= "col-sm-1 aside-client";
+    document.getElementById("otro").className= "col-sm-11 ";
+
+
+
 
   }
 }
