@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable
   has_one :client
   has_one :professional
+
   
   validates :nombre, presence: true,length: { minimum: 2}, format: { with: /[A-Za-z]/ , message: "solo puede contener letras." }
 
