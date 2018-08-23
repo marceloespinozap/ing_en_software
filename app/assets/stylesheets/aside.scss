@@ -14,16 +14,24 @@
  *= require_tree .
  */
 
-@import " bootstrap ";
 
 .aside-client{
-  background-color: #212529;
+  background-color: rgba(13,180,34,10.8);
+  background-image: url("pizzarra.jpg");
+  position:fixed;
   margin-top: 10px !important;
   padding: 0px !important;
   margin: 0px !important;
 
 
 }
+.aside-perfil{
+padding: 0px;
+
+
+
+}
+
 .caja-icono{
   width: 20px;
   height: 14px;
@@ -45,8 +53,8 @@
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 15px;
-
-  background-color: #343a40;
+background-image: none;
+  //background-color: #343a40;
   margin-top: 3px;
 
 

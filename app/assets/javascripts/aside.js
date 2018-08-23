@@ -11,6 +11,7 @@ document.getElementById('Primero').className="aside-link-client";
     document.getElementById("Last").className="aside-link-client fas fa-angle-double-left";
     document.getElementById("Switch").className="col-sm-2 aside-client";
     document.getElementById("otro").className= "col-sm-10";
+    document.getElementById("perfil").className= "";
 
 
 

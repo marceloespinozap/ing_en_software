@@ -10,121 +10,12 @@
   </head>
 
   <body  >
-      <% if user_signed_in?  %>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
 
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
 
 
-
-              <% if current_user.role == "client"%>
-                <li class="nav-item col-md top_padding_list">
-                  <%= link_to "Cliente", attentions_path,:class => "nav-link disabled"%>
-                </li>
-              <% end %>
-
-               <% if current_user.role == "professional"%>
-                  <li class="nav-item col-md top_padding_list">
-                    <%= link_to " Profesional", attentions_path %>
-                  </li>
-               <% end %>
-
-               <% if current_user.role == "admin"%>
-                <li class="nav-item nav-link disabled">
-                    <%= link_to "Administrador", attentions_path %>
-                 </li>
-
-                
-                 <li class="nav-item dropdown">
-                   <%= link_to "crear usuario ", new_user_path, :class =>"nav-link"%>
-                 </li>
-                
-               
-                 <li class="nav-item dropdown">
-                   <%= link_to "info-profesional ", professionals_path, :class =>"nav-link"%>
-                 </li>
-                 <li class="nav-item dropdown">
-                   <%= link_to "info-clientes ", clients_path, :class =>"nav-link"%>
-                 </li>
-
-               <% end %>
-               <li class="nav-item">
-                 <a class="nav-link" href="/users/sign_out">Salir</a>
-               </li>
-
-
-
-              <% end %>
-
-
-      </ul>
-
-      </div>
-    </nav>
-
-<div class="row">
-
-  <% if user_signed_in?  %>
-      <div class="col-sm-2 aside-client" id="Switch" >
-        <ul  class="navbar-nav mr-auto">
-        <li class="aside-items-client">
-          <%= link_to "Panel ", professionals_path, :class =>"aside-link-client",:id => "Primero"%>
-        </li>
-
-         <li class="aside-items-client">
-           <%= link_to "Profesionales", attentions_path, :class =>"aside-link-client",:id => "Segundo" %>
-         </li>
-         <li class="aside-items-client">
-           <a class="aside-link-client" id="Tercero" href=""> Clientes</a>
-         </li>
-         <li class="aside-items-client">
-           <div class="btn-group" role="group">
-             <button id="btnGroupDrop1" type="button" class="aside-link-client dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Dropdow
-             </button>
-             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-               <a class="dropdown-item" href="#">Dropdown link</a>
-               <a class="dropdown-item" href="#">Dropdown link</a>
-             </div>
-           </div>
-
-
-         </li>
-
-
-
-          <li class="aside-items-client ">
-            <button class="aside-link-client fas fa-angle-double-left" id="Last" onclick="switch1()"></button>
-        </li>
-       </ul>
-      </div>
-
-      <div class="col-md-10" id="otro">
-
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-
-      <%= yield %>
-    </body>
-
-      </div>
-      </div>
-
-
-   <%else%>
-     <%= yield %>
-      <% end %>
+</body>
 
 
 
