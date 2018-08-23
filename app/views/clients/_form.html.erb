@@ -1,12 +1,12 @@
   <%= simple_form_for  @client, validate: true do |f| %>
 
 <% @users = User.all %>
-<% @clients = Client.all %>
 
+<% @clients = Client.all %>
 <div class="container">
 
 
-<%= f.input (:user_id) , :collection => @users ,:label_method => :nombre,:value_method => :id , :label => "usuario" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
+<%= f.input (:user_id) , :collection => @users ,:label_method => :nombre,:value_method => :id , :label => "usuario" ,:include_blank => false ,  presence: true, uniqueness: true %>
 
 
 </div>
@@ -15,10 +15,10 @@
 
 
   <br>
-  <%= f.input :prevision ,label: 'prevision', error: 'la descripcion no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
+  <%= f.input :prevision, :include_blank => false, collection: [['fonasa',1], ['otro', 2]], error: 'la descripcion no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
 
 
-</br>
+<br>
   <%= f.submit"guardar",:class=>"btn-primary btn" %>
   <% end %>
 </div>

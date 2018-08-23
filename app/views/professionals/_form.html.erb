@@ -3,31 +3,32 @@
 <% @users = User.all %>
 <% @specialty = Specialty.all %>
 
+<br>
 
-<%= f.input (:user_id) , :collection => @users ,:label_method => :nombre,:value_method => :id , :label => "usuario" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
+<%= f.input (:user_id) , :collection => @users ,:label_method => :nombre,:value_method => :id , :label => "Usuario" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
 
 
 
 
 <br>
 
-   <%= f.input :type_contract ,label: 'tipo de contrato', error: 'se debe ingresar un numero',  validate: { presence: true }  %>  
+ <%= f.input :type_contract,label: 'Tipo de contrato',:include_blank => false, collection: [['tipo 1',1], ['tipo 2', 2], ['tipo 3', 3]], error: 'no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
 
 <br>
 
 
-<%= f.input (:specialty_id) , :collection => @specialty ,:label_method => :name,:value_method => :id , :label => "especialidad" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
+<%= f.input (:specialty_id) , :collection => @specialty ,:label_method => :name,:value_method => :id , :label => "Especialidad" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
 
 
 
 
 <br>
-<%= f.label :start_contract %>
+<%= f.label :fecha_inicio_contrato %>
 <%= f.text_field :start_contract %>
 <br>
-<%= f.label :end_contract %>
+<%= f.label :fecha_fin_contrato %>
 <%= f.text_field :end_contract %>
 
-
+<br>
 <%= f.button :submit %>
 <% end %>

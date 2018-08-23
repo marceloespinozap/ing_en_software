@@ -13,10 +13,6 @@
 
     <section>
 
-  <% if current_user.role == "admin"%>
-      <%= "crear nuevo usuario" %>
-      <%= link_to "añadir usuario",  new_user_url %>
-      <% end %> 
 <% if @attention.empty? %>
 <div class='alert alert-warning' role='alert'> no existen clientes registrados registradas </div>
 
@@ -90,10 +86,18 @@
 
   <%end%>
   </table>
-
-
-
-
+ <% if current_user.role == "professional"%>
+ <li class="nav-item">
+            <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
+          </li>
+      <% end %>
+       <% if current_user.role == "admin"%>
+ <li class="nav-item">
+            <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
+          </li>
+      <% end %>
+      
+</section>
 </section>
 </body>
 <style>

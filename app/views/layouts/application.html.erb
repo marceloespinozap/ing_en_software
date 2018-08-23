@@ -37,14 +37,22 @@
                <% end %>
 
                <% if current_user.role == "admin"%>
-
-                 <li class="nav-item dropdown">
-                   <%= link_to "informacion profesional ", professionals_path, :class =>"nav-link"%>
+                <li class="nav-item nav-link disabled">
+                    <%= link_to "Administrador", attentions_path %>
                  </li>
 
-                  <li class="nav-item nav-link disabled">
-                    <%= link_to "Administrador", attentions_path %>
-                  </li>
+                
+                 <li class="nav-item dropdown">
+                   <%= link_to "crear usuario ", new_user_path, :class =>"nav-link"%>
+                 </li>
+                
+               
+                 <li class="nav-item dropdown">
+                   <%= link_to "info-profesional ", professionals_path, :class =>"nav-link"%>
+                 </li>
+                 <li class="nav-item dropdown">
+                   <%= link_to "info-clientes ", clients_path, :class =>"nav-link"%>
+                 </li>
 
                <% end %>
                <li class="nav-item">
@@ -64,7 +72,6 @@
 <div class="row">
 
   <% if user_signed_in?  %>
-      <% if current_user.role == "admin"%>
       <div class="col-sm-2 aside-client" id="Switch" >
         <ul  class="navbar-nav mr-auto">
         <li class="aside-items-client">
@@ -115,7 +122,6 @@
       </div>
 
 
-<%end %>
    <%else%>
      <%= yield %>
       <% end %>

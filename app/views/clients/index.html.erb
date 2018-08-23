@@ -22,7 +22,7 @@
 
  <tr>
     <th>id atencion</td>
-    <th>usuario</th>
+    <th>nombre usuario</th>
     <th>prevision</th>
     <th>preexistencia</th>
     <th>VER</th>
@@ -36,9 +36,9 @@
 
 
 
-
   <td><%= client.id %></td>
-  <td><%= client.prevision    %></td>
+
+  <td><%= User.find(client.id).nombre %></td>
   <td><%= client.prevision    %></td>
    <td><%= link_to 'PREEXISTENCIAS', :controller => 'preexistenceclients', :id => client.id%> </td>
 

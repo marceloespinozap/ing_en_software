@@ -21,9 +21,10 @@ Rails.application.routes.draw do
 
   get 'professionals/panel' => 'professional/panel'
 
-devise_for :user
-resources :users, :controller => "users"
-
+devise_for :users do
+  get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+end
+ resources :users, :controller => "users" , :except => [:show]
   resources :attentions
     resources :clients
     resources :professionals
