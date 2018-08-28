@@ -1,6 +1,7 @@
 class AttentionsController < ApplicationController
 
  before_action :set_attention, only: [:show, :delete, :edit,:update]
+  layout :elegir_layout
 
 
   def index
