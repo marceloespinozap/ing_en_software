@@ -13,6 +13,9 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'bootstrap', '~> 4.1.0'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'simple_form'
 gem 'will_paginate'
 gem 'cancancan', '~> 1.9'
