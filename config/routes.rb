@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get 'attentions/pdf/:id' => "attentions#pdf", :as =>'create_pdf'
   get 'admins/index'
 
   get 'admins/new'

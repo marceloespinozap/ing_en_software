@@ -8,6 +8,18 @@ class AttentionsController < ApplicationController
   	@attention = Attention.all
   end
 
+  def pdf
+      @attention = Attention.find(params[:id])
+      respond_to do |format|
+          format.html
+          format.js
+          format.pdf do
+             render pdf: "documento",
+             template: "attentions/show.html.erb"
+end
+  end
+end
+
   def show
       @attention = Attention.find(params[:id])
 

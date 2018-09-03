@@ -72,6 +72,9 @@
   <td><%= attention.description %></td>
     <% if can? :read, :attentions %>
   <td><%= link_to 'Ver', attention_path(attention)%> </td>
+
+    <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+
 <% end %>
  <% if can? :update, :attentions %>
   <td><%= link_to 'Editar', edit_attention_path(attention) %> </td>
