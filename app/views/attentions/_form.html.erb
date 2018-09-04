@@ -18,7 +18,39 @@
 <%= "no existe profesionales creados para entregar atencion" %>
 <%= "primero debes crear un profesional" %>
 <% else%>
+<%var = 1%>
 
+
+<%= f.label :id_professional_ %>
+<% if current_user.role == "professional"%>
+  <% @b.each do |c| %>
+      <%if c.user_id == current_user.id %>
+      <%@id = c.id %>
+      <% var = 0%>
+  <%end%>
+  <%end%>
+
+  <%if var == 0 %>
+    <%= f.input :professional_id, :include_blank => false, collection: [[current_user.nombre,@id ]]  ,label: 'profesional' %>
+
+      <%= "tipo de usuario: Profesional" %>
+  <%else %>
+      <%= "aun no se ha añadido la informacion del profesional" %>
+  <% var = 1 %>
+  <% end %>
+
+
+<% else %>
+<%= f.select (:professional_id) do %>
+<% @b.each do |c| %>
+  <% @professional = c.id %>
+
+      <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
+      <% end %>
+    <% end %>
+      <% end %> 
+
+<br>
 
     <%= f.label :id_cliente %>
   
@@ -36,21 +68,6 @@
 
 <br>
 
-<%= f.label :id_professional %>
-<% if current_user.role == "professional"%>
-<%= f.select :professional_id, [current_user.nombre ] %>
-<%= "tipo de usuario: Profesional" %>
-<% else %>
-<%= f.select (:professional_id) do %>
-<% @b.each do |c| %>
-  <% @professional = c.id %>
-
-      <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
-      <% end %>
-    <% end %>
-      <% end %> 
-
-<br>
 
 
 

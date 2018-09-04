@@ -1,6 +1,8 @@
 <%= form_for @user  do |f| %>
 
 
+
+<% if current_user.role == 'admin'%>
   <div class="field">
     <%= f.label :role %><br />
   <%= f.select (:role)  do%>
@@ -10,6 +12,9 @@
 
   <%end%>
   </div>
+
+  <% end %>
+
 <div class="field">
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre , autofocus: true%>

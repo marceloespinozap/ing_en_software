@@ -14,12 +14,12 @@
     <section>
 
 <% if @attention.empty? %>
+
 <div class='alert alert-warning' role='alert'> no existen clientes registrados registradas </div>
 
 
 <%else%>
 <%= "Atenciones registradas actualmente" %>
-
   <table class="navbar-dark bg-dark" >
 
      <% if current_user.role == "client"%>
@@ -92,11 +92,17 @@
  <% if current_user.role == "professional"%>
  <li class="nav-item">
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
+            <%= link_to "Modificar datos personales", edit_user_path(current_user.id) %>
+
           </li>
       <% end %>
        <% if current_user.role == "admin"%>
  <li class="nav-item">
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
+           <%= link_to "Modificar datos personales", edit_user_path(current_user.id) %>
+<br>            <%= link_to "Modificar usuarios", users_path %>
+
+
           </li>
       <% end %>
       

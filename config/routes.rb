@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'attentions/pdf/:id' => "attentions#pdf", :as =>'create_pdf'
+ match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+
   get 'admins/index'
 
   get 'admins/new'
@@ -21,10 +23,10 @@ Rails.application.routes.draw do
 
   get 'professionals/panel' => 'professional/panel'
 
-devise_for :users do
+devise_for :users do 
   get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
 end
- resources :users, :controller => "users" , :except => [:show]
+ resources :users, :controller => "users", :except => [:show] 
   resources :attentions
     resources :clients
     resources :professionals

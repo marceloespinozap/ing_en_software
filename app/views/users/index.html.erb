@@ -1,4 +1,73 @@
-<h1>Admins#index</h1>
-<p>Find me in app/views/admins/index.html.erb</p>
+<% users=User.all %>
+
+
+
+<%users.each do |user|%>
+
+ <table class="navbar-dark bg-dark" >
+<%if user.role == "admin" %>
+<h1>Administradores</h1>
+
+<% end %>
+<%if user.role == "professional" %>
+<h1>Profesionales</h1>
+
+<% end %>
+<%if user.role == "client" %>
+<h1>Clientes</h1>
+<% end %>
+
+ <tr>
+    <th>id</td>
+    <th>email</th>
+    <th>nombre</th>
+    <th>direccion</th>
+    <th>Profesional</th>
+    <th>Descripcion</th>
+
+</tr>
+ <tr>
+<%if user.id == current_user.id %>
+<%if user.role == "admin" %>
+  <td><%= user.id %></td>
+  <td><%= user.email %></td>
+  <td><%= user.nombre %></td>
+  <td><%= user.direccion %></td>
+  <td><%= user.fecha_nacimiento %></td>
+  <td><%= user.numero_contacto %></td>
+  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+  <% end %>
+<% end %>
+
+<%if user.role == "professional" %>
+  <td><%= user.id %></td>
+  <td><%= user.email %></td>
+  <td><%= user.nombre %></td>
+  <td><%= user.direccion %></td>
+  <td><%= user.fecha_nacimiento %></td>
+  <td><%= user.numero_contacto %></td>
+  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+
+<% end %>
+<%if user.role == "client" %>
+  <td><%= user.id %></td>
+  <td><%= user.email %></td>
+  <td><%= user.nombre %></td>
+  <td><%= user.direccion %></td>
+  <td><%= user.fecha_nacimiento %></td>
+  <td><%= user.numero_contacto %></td>
+  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+
+<% end %>
+</table>
+<% end %>
+
+</tr>
+
+
+<p></p>
 <%= link_to "añadir usuario", new_user_path, :class =>"nav-link"%>
 

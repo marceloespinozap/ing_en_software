@@ -8,6 +8,7 @@ class Ability
        user ||= User.new # guest user (not logged in)
          if user.role == "client"
          can :read, :attention
+         can :manage, User, id: user.id
      end
        if user.role == "admin"
          can :manage, :all
@@ -15,7 +16,8 @@ class Ability
      end
        if user.role =="professional"
          can :manage, :attentions
-     end
+         can :manage, User, id: user.id
+         end
 
 
 
