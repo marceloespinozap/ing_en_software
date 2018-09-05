@@ -1,4 +1,5 @@
 <%= simple_form_for @user  do |f| %>
+<% @specialty = Specialty.all %>
 
 
 
@@ -7,38 +8,32 @@
 
 
 <div class="field">
-    <%= f.label :nombre %><br />
     <%= f.input :nombre , autofocus: true%>
   </div>
   <div class="field">
-    <%= f.label :fecha_de_nacimiento %><br />
     <%= f.input :fecha_nacimiento , autofocus: true%>
   </div>
   
     <div class="field">
-    <%= f.label :direccion %><br />
     <%= f.input :direccion , autofocus: true%>
   </div>
     <div class="field">
-    <%= f.label :numero_contacto %><br />
-    <%= f.input :numero_contacto , autofocus: true%>
+    <%= f.label :numero_contacto %>
+    <%= f.text_field :numero_contacto , autofocus: true%>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
     <%= f.input :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.input :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
     <%= f.input :password_confirmation, autocomplete: "off" %>
   </div>
   <div>
@@ -46,18 +41,23 @@
 
 <%if @role == 'client' %>
 <%= f.simple_fields_for :client do |client| %>
-        <%= client.input :prevision  %>
+<%= client.input :prevision, :include_blank => false, collection: [['fonasa',1], ['otro', 2]], error: 'la descripcion no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
       <% end %>
 
       
 <% end %>
 <%if @role == 'professional' %>
 
+
       <%= f.simple_fields_for :professional do |professional| %>
-        <%= professional.input :start_contract  %>
-        <%= professional.input :end_contract  %>
-        <%= professional.input :type_contract  %>
-        <%= professional.input :specialty_id  %>
+
+
+<br>
+ <%= professional.input :type_contract,label: 'Tipo de contrato',:include_blank => false, collection: [['tipo 1',1], ['tipo 2', 2], ['tipo 3', 3]], error: 'no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>  
+<%= professional.input (:specialty_id) , :collection => @specialty ,:label_method => :name,:value_method => :id , :label => "Especialidad" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
+<%= professional.input :start_contract %>
+<%= professional.input :end_contract,   presence: true %>
+
 
       <% end %>
 

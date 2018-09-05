@@ -21,7 +21,9 @@ end
       flash[:notice] = "Usuario creado con exito." 
       redirect_to attentions_path
     else
-      render :action => 'new'
+      flash[:notice] = "Problemas al registrar usuario, intenta nuevamente." 
+
+      redirect_to users_option_path
     end
   end
 

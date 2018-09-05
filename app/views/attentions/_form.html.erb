@@ -53,13 +53,12 @@
 <br>
 
     <%= f.label :id_cliente %>
-  
- 	<%= f.select (:client_id) do %>
+    	<%= f.select (:client_id) do %>
 
-    <% @a.each do |c| %>
-  	<% @client = c.id %>
+     <% @a.each do |c| %>
+    	<% @client = c.id %>
 	
-  	<%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
+  	 <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
     <% end %>
     <% end %>
 
@@ -67,24 +66,15 @@
 
 
 <br>
-
-
-
-
-
 <%= f.label :Fecha_de_atencion_ %>
 <%= f.input :attention_date %>
 
+<br>
+      <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'fecha de la atencion' %>
 
 <br>
-  <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'fecha de la atencion' %>
 
-<br>
-
-<%= f.input :description, label: 'Detallles de la atencion', error: 'la descripcion no puede estar vacia' %>
-
-
-
+      <%= f.input :description, label: 'Detallles de la atencion', error: 'la descripcion no puede estar vacia' %>
 
 <br>
 

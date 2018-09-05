@@ -15,23 +15,14 @@
 
 <% if @attention.empty? %>
 
-<div class='alert alert-warning' role='alert'> no existen clientes registrados registradas </div>
+<div class='alert alert-warning' role='alert'> no existen atenciones registradas </div>
 
 
 <%else%>
 <%= "Atenciones registradas actualmente" %>
   <table class="navbar-dark bg-dark" >
 
-     <% if current_user.role == "client"%>
-      <% end %>
-
-      <% if current_user.role == "professional"%>
-      <%= "tipo de usuario: Profesional" %>
-      <% end %> 
-      
-      <% if current_user.role == "admin"%>
-      <%= "tipo de usuario: Administrador" %>
-      <% end %> 
+    
   <tr>
     <th>id</td>
     <th>Fecha de atencion</th>
@@ -60,6 +51,9 @@
 
 <% @attention.each do |attention|  %>
 <tr>
+<% if current_user.role =="professional" && current_user.id == attention.professional_id %>
+
+
   <% @professional = attention.professional_id %>
   <% @client = attention.client_id %>
 
@@ -85,9 +79,71 @@
  </tr>
 
   <%end%>
+  <%end%>
 
 
   <%end%>
+
+<% @attention.each do |attention|  %>
+<tr>
+<% if current_user.role =="client" && current_user.client.id == attention.client_id %>
+
+<% @professional = attention.professional_id %>
+  <% @client = attention.client_id %>
+
+
+  <td><%= attention.id %></td>
+  <td><%= attention.attention_date %></td>
+  <td><%= attention.attention_time %></td>
+  <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
+  <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
+  <td><%= attention.description %></td>
+  <td><%= link_to 'Ver', attention_path(attention)%> </td>
+
+    <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+
+
+ </tr>
+
+  <%end%>
+
+
+  <%end%>
+
+  <% @attention.each do |attention|  %>
+<tr>
+<% if current_user.role =="admin"%>
+ <% @professional = attention.professional_id %>
+  <% @client = attention.client_id %>
+
+
+  <td><%= attention.id %></td>
+  <td><%= attention.attention_date %></td>
+  <td><%= attention.attention_time %></td>
+  <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
+  <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
+  <td><%= attention.description %></td>
+    <% if can? :read, :attentions %>
+  <td><%= link_to 'Ver', attention_path(attention)%> </td>
+
+    <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+
+<% end %>
+ <% if can? :update, :attentions %>
+  <td><%= link_to 'Editar', edit_attention_path(attention) %> </td>
+<% end %>
+ <% if can? :delete, :attentions %>
+  <td><%= link_to 'Eliminar', attention ,   :method => :delete,  data: { confirm: "estas seguro?"} %></td>
+<% end %>
+ </tr>
+
+  <%end%>
+  <%end%>
+
+
+
+
+
   </table>
  <% if current_user.role == "professional"%>
  <li class="nav-item">
