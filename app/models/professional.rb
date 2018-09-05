@@ -7,7 +7,7 @@ class Professional < ApplicationRecord
    validates_numericality_of :type_contract, only_integer: true
 
 
-	validates :user_id, uniqueness: { is: true, message:"ya existe un perfil profesional creado" } , presence: true
+	#validates :user_id, uniqueness: { is: true, message:"ya existe un perfil profesional creado" } , presence: true
 
 
 end

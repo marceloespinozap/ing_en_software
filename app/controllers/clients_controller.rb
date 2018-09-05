@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-   before_action :set_attention, only: [:show, :delete, :edit,:update]
+   before_action :set_client, only: [:show, :delete, :edit,:update]
    def index
     @client = Client.all
   end

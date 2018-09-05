@@ -2,20 +2,10 @@
 
 
 
-<%users.each do |user|%>
 
  <table class="navbar-dark bg-dark" >
-<%if user.role == "admin" %>
-<h1>Administradores</h1>
 
-<% end %>
-<%if user.role == "professional" %>
-<h1>Profesionales</h1>
-
-<% end %>
-<%if user.role == "client" %>
-<h1>Clientes</h1>
-<% end %>
+ 	<h1>Administradores</h1>
 
  <tr>
     <th>id</td>
@@ -26,8 +16,12 @@
     <th>Descripcion</th>
 
 </tr>
+
+<%users.each do |user|%>
+
  <tr>
-<%if user.id == current_user.id %>
+
+<%if user.id != current_user.id %>
 <%if user.role == "admin" %>
   <td><%= user.id %></td>
   <td><%= user.email %></td>
@@ -39,6 +33,28 @@
   <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
   <% end %>
 <% end %>
+<%end%>
+</tr>
+
+ <table class="navbar-dark bg-dark" >
+
+<h1>Profesionales</h1>
+
+ <tr>
+    <th>id</td>
+    <th>email</th>
+    <th>nombre</th>
+    <th>direccion</th>
+    <th>Profesional</th>
+    <th>Descripcion</th>
+
+</tr>
+</table>
+
+ <table class="navbar-dark bg-dark" >
+<tr>
+
+<%users.each do |user|%>
 
 <%if user.role == "professional" %>
   <td><%= user.id %></td>
@@ -49,9 +65,30 @@
   <td><%= user.numero_contacto %></td>
   <td><%= link_to 'Editar', edit_user_path(user) %> </td>
   <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+  </tr>
 
 <% end %>
+<% end %>
+</table>
+
+ <table class="navbar-dark bg-dark" >
+
+
+<h1>Clientes</h1>
+
+ <tr>
+    <th>id</td>
+    <th>email</th>
+    <th>nombre</th>
+    <th>direccion</th>
+    <th>Profesional</th>
+    <th>Descripcion</th>
+
+</tr>
+<%users.each do |user|%>
+<tr>
 <%if user.role == "client" %>
+
   <td><%= user.id %></td>
   <td><%= user.email %></td>
   <td><%= user.nombre %></td>
@@ -62,8 +99,8 @@
   <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
 
 <% end %>
-</table>
 <% end %>
+</table>
 
 </tr>
 

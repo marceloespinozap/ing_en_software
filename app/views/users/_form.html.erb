@@ -1,41 +1,32 @@
-<%= form_for @user  do |f| %>
+<%= simple_form_for @user  do |f| %>
 
 
 
-<% if current_user.role == 'admin'%>
-  <div class="field">
-    <%= f.label :role %><br />
-  <%= f.select (:role)  do%>
-  <% [['Administrador ', 'admin'], ['Profesional', 'professional'], ['cliente', 'client']].each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last, autofocus: true) %>
-  <% end %>
 
-  <%end%>
-  </div>
+<%= f.hidden_field :role , :value => @role %>
 
-  <% end %>
 
 <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre , autofocus: true%>
+    <%= f.input :nombre , autofocus: true%>
   </div>
   <div class="field">
     <%= f.label :fecha_de_nacimiento %><br />
-    <%= f.date_field :fecha_nacimiento , autofocus: true%>
+    <%= f.input :fecha_nacimiento , autofocus: true%>
   </div>
   
     <div class="field">
     <%= f.label :direccion %><br />
-    <%= f.text_field :direccion , autofocus: true%>
+    <%= f.input :direccion , autofocus: true%>
   </div>
     <div class="field">
     <%= f.label :numero_contacto %><br />
-    <%= f.text_field :numero_contacto , autofocus: true%>
+    <%= f.input :numero_contacto , autofocus: true%>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.input :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -43,15 +34,37 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.input :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.input :password_confirmation, autocomplete: "off" %>
   </div>
+  <div>
+
+
+<%if @role == 'client' %>
+<%= f.simple_fields_for :client do |client| %>
+        <%= client.input :prevision  %>
+      <% end %>
+
+      
+<% end %>
+<%if @role == 'professional' %>
+
+      <%= f.simple_fields_for :professional do |professional| %>
+        <%= professional.input :start_contract  %>
+        <%= professional.input :end_contract  %>
+        <%= professional.input :type_contract  %>
+        <%= professional.input :specialty_id  %>
+
+      <% end %>
+
+
+   <% end %>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+<%= f.button :submit %>
   </div>
 <% end %>

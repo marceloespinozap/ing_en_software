@@ -14,6 +14,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery3
+//= require cocoon
 //= require popper
 //= require bootstrap-sprockets
 //= require dataTables/jquery.dataTables

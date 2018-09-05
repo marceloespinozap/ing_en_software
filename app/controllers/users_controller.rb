@@ -7,8 +7,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-  end
+        @role = params[:role]
+    @user.build_client
+    @user.build_professional
+             end
 
+
+def option
+end
   def create
     @user = User.new(user_params)
     if @user.save
@@ -46,6 +52,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-     params.require(:user).permit(:email, :password, :password_confirmation, :nombre,:fecha_nacimiento , :numero_contacto , :direccion, :role)
+     params.require(:user).permit(:email, :password, :password_confirmation, :nombre,:fecha_nacimiento , :numero_contacto , :direccion, :role,  client_attributes: [:id, :prevision, :user_id], professional_attributes: [:id, :start_contract, :end_contract, :type_contract, :specialty_id, :user_id])
   end
 end

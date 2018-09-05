@@ -8,6 +8,7 @@ end
 gem 'jquery-rails'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem "cocoon"
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 

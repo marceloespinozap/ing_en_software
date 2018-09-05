@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable
   has_one :client
+  accepts_nested_attributes_for :client
   has_one :professional
+  accepts_nested_attributes_for :professional
 
   
   validates :nombre, presence: true,length: { minimum: 2}, format: { with: /[A-Za-z]/ , message: "solo puede contener letras." }

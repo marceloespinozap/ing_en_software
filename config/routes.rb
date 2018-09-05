@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'attentions/pdf/:id' => "attentions#pdf", :as =>'create_pdf'
+  get 'users/option'
  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   get 'admins/index'

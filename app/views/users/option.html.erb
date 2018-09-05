@@ -1,0 +1,10 @@
+
+
+<h1> Seleccione tipo de perfil que desea crear</h1>
+<%a ='admin'%>
+<%p= 'professional'%>
+<%c='client'%>
+                        <%= link_to "ADMIN ", new_user_path(:role => "admin"), :class =>"nav-link"%>
+                        <%= link_to "CLIENT ", new_user_path(:role => "client"), :class =>"nav-link"%>
+                        <%= link_to "PROFESIONAL ", new_user_path(:role => "professional"), :class =>"nav-link"%>
+
