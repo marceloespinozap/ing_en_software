@@ -17,19 +17,19 @@ if user_signed_in?
     if current_user.role == "admin"
      return "Panel"
     end
-  
+
     if current_user.role == "client"
      return  "Panel"
     end
- 
+
    if current_user.role == "professional"
     return   "Panel"
    end
       else
-        return  "Panel"
-     end 
-      end   
-  
+        return  "home"
+     end
+      end
+
 private
 
   def configure_permitted_parameters
