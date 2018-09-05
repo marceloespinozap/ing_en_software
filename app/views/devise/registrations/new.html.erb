@@ -7,24 +7,14 @@
 
 
   <div class="field">
-    <%= f.label :role %><br />
-  <%= f.select (:role)  do%>
-  <% [['Administrador ', 'admin'], ['Profesional', 'professional'], ['cliente', 'client']].each do |c| %>
-    <%= content_tag(:option, c.first, value: c.last, autofocus: true) %>
-  <% end %>
-
-  <%end%>
-  </div>
-
-  <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre , autofocus: true%>
+    <%= f.text_field :nombre , autofocus: true,:class =>"form-control"%>
   </div>
   <div class="field">
     <%= f.label :fecha_de_nacimiento %><br />
     <%= f.date_field :fecha_nacimiento , autofocus: true%>
   </div>
-  
+
     <div class="field">
     <%= f.label :direccion %><br />
     <%= f.text_field :direccion , autofocus: true%>

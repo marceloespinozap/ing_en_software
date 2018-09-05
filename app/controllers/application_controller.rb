@@ -15,7 +15,7 @@ helper_method :current_user
 if user_signed_in?
 
     if current_user.role == "admin"
-     return "Panel"
+     return "admin"
     end
 
     if current_user.role == "client"

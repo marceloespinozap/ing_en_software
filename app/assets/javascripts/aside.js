@@ -32,3 +32,13 @@ document.getElementById('Primero').className="aside-link-client";
 
   }
 }
+function valida1(){
+var valor=document.getElementById('val1').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val1').value="";
+  document.getElementById('val1').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
