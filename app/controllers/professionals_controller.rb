@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-   before_action :set_attention, only: [:show, :delete, :edit,:update]
+   before_action :set_professional, only: [:show, :delete, :edit,:update]
 
 
   def index
@@ -9,7 +9,10 @@ class ProfessionalsController < ApplicationController
   def panel
     render :panel
   end
+def show
+  @professional = Professional.find(params[:id])
 
+end
 
   def new
   	@professional = Professional.new
@@ -55,7 +58,7 @@ class ProfessionalsController < ApplicationController
    end
 
     def set_professional
-        @professional = professional.find(params[:id])
+    @professional = Professional.find(params[:id])
     end
 
   end
