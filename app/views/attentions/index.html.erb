@@ -51,7 +51,7 @@
 
 <% @attention.each do |attention|  %>
 <tr>
-<% if current_user.role =="professional" && current_user.id == attention.professional_id %>
+<% if current_user.role =="professional" && current_user.professional.id == attention.professional_id %>
 
 
   <% @professional = attention.professional_id %>
