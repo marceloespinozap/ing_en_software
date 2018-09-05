@@ -42,3 +42,63 @@ if(nombre.exec(valor)){
 }
 
 }
+function valida1(){
+var valor=document.getElementById('val2').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val2').value="";
+  document.getElementById('val2').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
+function valida1(){
+var valor=document.getElementById('val3').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val3').value="";
+  document.getElementById('val3').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
+function valida1(){
+var valor=document.getElementById('val4').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val4').value="";
+  document.getElementById('val4').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
+function valida1(){
+var valor=document.getElementById('val5').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val5').value="";
+  document.getElementById('val5').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
+function valida1(){
+var valor=document.getElementById('val6').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val6').value="";
+  document.getElementById('val6').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}
+function valida1(){
+var valor=document.getElementById('val7').value;
+var nombre =new RegExp("/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{3}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/g");
+if(nombre.exec(valor)){
+  document.getElementById('val7').value="";
+  document.getElementById('val7').focus();
+  alert("Debes ingresar un nombre valido, mas de 3 caracteres y mas de un nombre, sin numeros");
+}
+
+}

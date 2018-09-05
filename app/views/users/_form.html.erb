@@ -57,10 +57,13 @@
 
 
 <br>
- <%= professional.input :type_contract,label: 'Tipo de contrato',:include_blank => false, collection: [['tipo 1',1], ['tipo 2', 2], ['tipo 3', 3]], error: 'no puede estar vacia',  validate: { presence: true, uniqueness: true }  %>
-<%= professional.input (:specialty_id) , :collection => @specialty ,:label_method => :name,:value_method => :id , :label => "Especialidad" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  } %>
-<%= professional.input :start_contract %>
-<%= professional.input :end_contract,   presence: true %>
+ <%= professional.input :type_contract,label: 'Tipo de contrato',:include_blank => false, collection: [['tipo 1',1], ['tipo 2', 2], ['tipo 3', 3]], error: 'no puede estar vacia',  validate: { presence: true, uniqueness: true },:input_html => { :class => 'form-control' }  %>
+<%= professional.input (:specialty_id) , :collection => @specialty ,:label_method => :name,:value_method => :id , :label => "Especialidad" ,:include_blank => false ,  presence: true, uniqueness: { message: "debe ingresar este dato"  },:input_html => { :class => 'form-control' }  %>
+<p>Inicio de contrato</p>
+<%= professional.date_field :start_contract ,:class=>'form-control' %>
+
+<p>Fin contrato</p>
+<%= professional.date_field :end_contract,   presence: true,:class=>'form-control' %>
 
 
       <% end %>

@@ -1,11 +1,39 @@
-<%= 'id cliente:'%> 
-<%= @attention.client_id %><br>
+<center><h1>Informe</h1></center>
+<br>
+<br>
+<h2>IDENTIFICACION DEL ESTUDIANTE:</h2>
 
-<%= 'id proffesional:'%>
-<%= @attention.professional_id %><br>
+<table>
 
-<%= 'id atencion:'%>
-<%= @attention.id %><br>
+
+<tr>
+  <th><strong>Nombre</strong></th>
+<th><%= User.find(Client.find( @attention.client_id).user_id).nombre  %></td>
+
+</tr>
+
+</table>
+<%= 'fecha de nacimiento:'%>
+<%=User.find(@attention.client_id).fecha_nacimiento  %><br>
+<%= 'fecha de nacimiento:'%>
+<%=User.find(@attention.client_id).fecha_nacimiento  %><br>
+
+
+
+
+
+
+ <h3>descripcion</h3>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<br>
+<h3>
+Observaciones Generales
+</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
 
 <%= 'fecha de atencion:'%>
 <%= @attention.attention_date %><br>
@@ -13,9 +41,3 @@
 <%= 'duracion de atencion:'%>
 <%= @attention.attention_time %>
 <%= ' horas'%><br>
-
-
-
-<%= 'descripcion:'%>
-<%= @attention.description %><br>
-<%= link_to 'volver' , attentions_path%>
