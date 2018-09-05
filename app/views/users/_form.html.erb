@@ -1,9 +1,12 @@
 <%= simple_form_for @user  do |f| %>
 <% @specialty = Specialty.all %>
+<h1>
 
 
-
-
+<% if current_user.role != "admin" %>
+<% @role = current_user.role %>
+<%end%>
+</h1>
 <%= f.hidden_field :role , :value => @role %>
 <div class="container"style="width:300px;">
 

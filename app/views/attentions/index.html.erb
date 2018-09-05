@@ -20,7 +20,7 @@
 
 <%else%>
 <%= "Atenciones registradas actualmente" %>
-  <table class="navbar-dark bg-dark" >
+  <table class="" >
 
     
   <tr>
@@ -148,16 +148,12 @@
  <% if current_user.role == "professional"%>
  <li class="nav-item">
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
-            <%= link_to "Modificar datos personales", edit_user_path(current_user.id) %>
 
           </li>
       <% end %>
        <% if current_user.role == "admin"%>
  <li class="nav-item">
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
-           <%= link_to "Modificar datos personales", edit_user_path(current_user.id) %>
-<br>            <%= link_to "Modificar usuarios", users_path %>
-                <%= link_to "crear user 2.0", users_option_path%>
 
 
           </li>

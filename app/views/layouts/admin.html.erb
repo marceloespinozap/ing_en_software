@@ -24,28 +24,19 @@
         </div>
         <ul  class="navbar-nav mr-auto">
         <li class="aside-items-client">
-          <%= link_to "Panel ", professionals_path, :class =>"aside-link-client",:id => "Primero"%>
+          <%= link_to "profesionales ", professionals_path, :class =>"aside-link-client",:id => "Primero"%>
         </li>
 
          <li class="aside-items-client">
-           <%= link_to "Profesionales", attentions_path, :class =>"aside-link-client",:id => "Segundo" %>
+           <%= link_to "clientes", clients_path, :class =>"aside-link-client",:id => "Segundo" %>
+         </li>
+       <li class="aside-items-client">
+           <%= link_to "Usuarios", users_path, :class =>"aside-link-client",:id => "Tercero" %>
          </li>
          <li class="aside-items-client">
-           <a class="aside-link-client" id="Tercero" href=""> Clientes</a>
+           <%= link_to "crear cuenta", users_option_path, :class =>"aside-link-client",:id => "Cuarto" %>
          </li>
-         <li class="aside-items-client">
-           <div class="btn-group" role="group">
-             <button id="btnGroupDrop1" type="button" class="aside-link-client dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Dropdow
-             </button>
-             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-               <a class="dropdown-item" href="#">Dropdown link</a>
-               <a class="dropdown-item" href="#">Dropdown link</a>
-             </div>
-           </div>
-
-
-         </li>
+     
 
 
 
