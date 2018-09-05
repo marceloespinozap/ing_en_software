@@ -20,9 +20,7 @@
     <th>final</th>
     <th>contrato</th>
     <th>profesional</th>
-    <th>VER</th>
-    <th>EDITAR</th>
-    <th>ELIMINAR</th>
+
   </tr>
 
 
@@ -37,11 +35,7 @@
   <td><%= professional.type_contract %></td>
   <td><%=  User.find(professional.user_id).nombre  %></td>
 
-  <td><%= link_to 'Ver', professional_path(professional), :style =>"color:white;",:class =>"far fa-eye"%> </td>
-
-  <td><%= link_to  'Editar', edit_professional_path(professional),  :style =>"color:white;",:class =>"far fa-edit" %> </td>
-
-  <td><%= link_to 'Eliminar', professional ,   :method => :delete,  data: { confirm: "esta seguro que desea eliminar el registro?"} , :style =>"color:white;",:class =>"far fa-trash-alt" %></td>
+ 
 
  </tr>
 
