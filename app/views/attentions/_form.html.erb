@@ -48,7 +48,7 @@
       <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
       <% end %>
     <% end %>
-      <% end %> 
+      <% end %>
 
 <br>
 
@@ -57,7 +57,7 @@
 
      <% @a.each do |c| %>
     	<% @client = c.id %>
-	
+
   	 <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
     <% end %>
     <% end %>

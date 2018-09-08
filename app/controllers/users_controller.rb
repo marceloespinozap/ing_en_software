@@ -18,10 +18,10 @@ end
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Usuario creado con exito." 
+      flash[:notice] = "Usuario creado con exito."
       redirect_to attentions_path
     else
-      flash[:notice] = "Problemas al registrar usuario, intenta nuevamente." 
+      flash[:notice] = "Problemas al registrar usuario, intenta nuevamente."
 
       redirect_to users_option_path
     end
@@ -35,7 +35,7 @@ end
     @user = User.find(params[:id])
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
-    
+
     if @user.update(user_params)
       flash[:notice] = "Usuario actualizado."
       redirect_to attentions_path
@@ -46,11 +46,12 @@ end
 
   def destroy
     @user = User.find(params[:id])
+
     if @user.destroy
       flash[:notice] = "Usuario eliminado."
       redirect_to attentions_path
     end
-  end 
+  end
   private
 
   def user_params

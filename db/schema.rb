@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(version: 20180727043420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "attentions", "clients"
-  add_foreign_key "attentions", "professionals"
-  add_foreign_key "clients", "users"
-  add_foreign_key "preexistenceclients", "clients"
+  add_foreign_key "attentions", "clients", on_delete: :cascade
+  add_foreign_key "attentions", "professionals", on_delete: :cascade
+  add_foreign_key "clients", "users", on_delete: :cascade
+  add_foreign_key "preexistenceclients", "clients", on_delete: :cascade
   add_foreign_key "preexistenceclients", "preexistences"
-  add_foreign_key "professionals", "specialties"
-  add_foreign_key "professionals", "users"
+  add_foreign_key "professionals", "specialties", on_delete: :cascade
+  add_foreign_key "professionals", "users", on_delete: :cascade
 end
