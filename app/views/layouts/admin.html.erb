@@ -19,7 +19,7 @@
       <div class="col-sm-1 aside-container" >
 
         <div class="circulo">
-          <img src="/logo.jpg" class="imagen" alt="">
+          <img src="/logo.jpg" class="imagen fa-spin" alt="">
         </div>
         <div class="">
           <br><br><br>
@@ -28,6 +28,13 @@
 
         <ul class="navbar-nav mr-auto">
 
+          <li class="aside-items">
+              <%= link_to "", attentions_path ,:class =>"fas fa-book aside-icons",:id => "Atenciones"   %>
+           </li>
+           <li class="aside-items">
+               <%= link_to " ", new_attention_path,:class =>"fas fa-file-signature aside-icons",:id => "Nueva atencion"   %>
+
+            </li>
           <li class="aside-items">
             <%= link_to "", professionals_path, :class =>"fas fa-user-tie aside-icons",:id => "Profesional"%>
           </li>
@@ -50,14 +57,22 @@
 
       <div class="col-sm-11" id="otro" style="padding-left:0px !important;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-           <a class="navbar-brand" href="#">CpConstruyamos</a>
+           <a class="navbar-brand " href="#">CpConstruyamos</a>
 
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
+
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
            </div>
+           <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link"  style="color:rgb(116, 116, 116);"href="/users/sign_out">Salir</a>
+            </li>
+
+          </ul>
+
          </nav>
            <!--NAV FIN -->
 

@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <header>
-    </header>
+
+<section>
+  <% if @attention.empty? %>
+    <div class='alert alert alert-info' role='alert'> No existen <strong>atenciones</strong> registradas </div>
+  <%else%>
+  <br>
+  <div class="container col-12">
 
 
+<h3>Atenciones registradas</h3>
+<table class="table table-hover ">
+  <thead class="thead-dark">
 
-
-    <section>
-
-<% if @attention.empty? %>
-
-<div class='alert alert-warning' role='alert'> no existen atenciones registradas </div>
-
-
-<%else%>
-<%= "Atenciones registradas actualmente" %>
-  <table class="" >
-
-    
   <tr>
     <th>id</td>
     <th>Fecha de atencion</th>
@@ -45,6 +33,7 @@
      <th>ELIMINAR</th>
 
 <% end %>
+  <thead>
   </tr>
 
 
@@ -101,7 +90,7 @@
   <td><%= link_to 'Ver', attention_path(attention)%> </td>
   <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
   <td><%= link_to 'Ver profesional', professional_path(attention.professional_id)%> </td>
-  
+
 
  </tr>
 
@@ -152,25 +141,10 @@
           </li>
       <% end %>
        <% if current_user.role == "admin"%>
- <li class="nav-item">
+
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
 
 
-          </li>
       <% end %>
-      
-</section>
-</section>
-</body>
-<style>
-table, th, td {
-    border: 1px solid black;
-    padding: 5px;
-}
-table {
-    border-spacing: 15px;
-}
-section{
-  margin: 20px;
-}
-</style>
+
+</div>

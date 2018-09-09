@@ -1,51 +1,59 @@
 
-<section >
 
+<div class="container col-12">
+  <section >
+    <br>
 
-<% if @client.empty? %>
-  <div class='alert alert-info' role='alert'>
-    No hay <strong>Clientes</strong> registrados
-  </div>
-<%else%>
+  <% if @client.empty? %>
+    <div class='alert alert-info' role='alert'>
+      No hay <strong>Clientes</strong> registrados
+    </div>
+  <%else%>
 
-<%= "clientes registrados actualmente" %>
-
-
-
-
-
-  <table class="table table-dark">
-
- <tr>
-    <th>id atencion</td>
-    <th>nombre usuario</th>
-    <th>prevision</th>
-
-  </tr>
-
-
-<% @client.each do |client|  %>
-<tr>
+  <h3>Clientes registrados</h3>
 
 
 
-  <td><%= client.id %></td>
 
-  <td><%= User.find(client.user_id).nombre %></td>
-  <%if client.prevision == 1 %>
-  <td><%= "fonasa"    %></td>
+  <table class="table table-hover ">
+    <thead class="thead-dark">
 
-<%else %>
-  <td><%= "isapre"    %></td>
+   <tr>
 
-  <%end%>
+      <th>Nombre usuario</th>
+      <th>Email</th>
+      <th>Movil</th>
+      <th>prevision</th>
 
- </td>
- </tr>
+    </tr>
+  </thead>
 
-  <%end%>
+  <% @client.each do |client|  %>
+  <tr>
 
-  <%end%>
 
-  </table>
-</section>
+
+
+
+    <td><%= User.find(client.user_id).nombre %></td>
+    <td><%= User.find(client.user_id).email %></td>
+    <td><%= User.find(client.user_id).numero_contacto %></td>
+    <%if client.prevision == 1 %>
+    <td><%= "fonasa"    %></td>
+
+  <%else %>
+    <td><%= "isapre"    %></td>
+
+    <%end%>
+
+   </td>
+   </tr>
+
+    <%end%>
+
+    <%end%>
+
+    </table>
+  </section>
+
+</div>
