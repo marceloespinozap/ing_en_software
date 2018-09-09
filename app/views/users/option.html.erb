@@ -1,5 +1,5 @@
-
-<div class="container" style="width:500px;padding:40px;background-color: rgba(219, 220, 223, 0.7);margin-top:50px;border-radius:30px 30px 30px 30px;">
+<br>
+<div class="container" style="background-color: rgba(228, 228, 228, 0.61);padding:40px;border-radius:30px 30px 30px 30px;">
 
   <h3> Seleccione tipo de perfil que desea crear</h3>
   <br>
@@ -8,16 +8,16 @@
   <%c='client'%>
   <div class="row">
 
-    <div class="col-sm">
-        <%= link_to "ADMIN ", new_user_path(:role => "admin"), :class =>"btn btn-danger"%>
+    <div class="col-sm-3">
+        <%= link_to "ADMINISTRADOR ", new_user_path(:role => "admin"), :class =>"btn btn-danger"%>
     </div>
-    <div class="col-sm">
-        <%= link_to "CLIENT ", new_user_path(:role => "client"), :class =>"btn btn-primary"%>
+    <div class="col-sm-2">
+        <%= link_to "CLIENTE ", new_user_path(:role => "client"), :class =>"btn btn-primary"%>
     </div>
-    <div class="col-sm">
+    <div class="col-sm-2">
         <%= link_to "PROFESIONAL ", new_user_path(:role => "professional"), :class =>"btn btn-success"%>
     </div>
-    
+
   </div>
 
 

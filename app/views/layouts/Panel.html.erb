@@ -18,27 +18,23 @@
 
   <% if user_signed_in?  %>
 
-      <div class="col-sm-2 aside-client" id="Switch" >
-        <div class="aside-perfil">
-          <center><img id="perfil" src="image3775.png" alt="" width="90px" height="90px" style="border-radius:50%;margin-bottom:60px;margin-top:30px;"></center>
+      <div class="col-sm-1 aside-container" id="Switch" >
+        <div class="circulo">
+          <img src="/logo.jpg" class="imagen fa-spin" alt="">
         </div>
+        <div class="">
+          <br><br><br>
+        </div>
+
         <ul  class="navbar-nav mr-auto">
-        <li class="aside-items-client">
-          <%= link_to "atenciones ", attentions_path, :class =>"aside-link-client",:id => "Primero"%>
+        <li class="aside-items">
+          <%= link_to "atenciones ", attentions_path, :class =>"",:id => "Primero"%>
         </li>
 
-       <li class="aside-items-client">
+       <li class="aside-items">
           <%= link_to "editar usuario ", edit_user_path(current_user.id), :class =>"aside-link-client",:id => "Primero"%>
         </li>
 
-
-
-
-
-
-          <li class="aside-items-client ">
-            <button class="aside-link-client fas fa-angle-double-left" id="Last" onclick="switch1()"></button>
-        </li>
        </ul>
       </div>
 
@@ -56,11 +52,7 @@
 
 
 
-                   <% if current_user.role == "client"%>
-                     <li class="nav-item col-md top_padding_list">
-                       <%= link_to "Cliente", attentions_path,:class => "nav-link disabled"%>
-                     </li>
-                   <% end %>
+      
 
                     <% if current_user.role == "professional"%>
                        <li class="nav-item col-md top_padding_list">

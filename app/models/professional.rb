@@ -9,5 +9,4 @@ class Professional < ApplicationRecord
 
 	#validates :user_id, uniqueness: { is: true, message:"ya existe un perfil profesional creado" } , presence: true
 
-
 end

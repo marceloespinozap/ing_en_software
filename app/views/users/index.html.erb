@@ -15,6 +15,8 @@
           <th>direccion</th>
           <th>Profesional</th>
           <th>Descripcion</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
         </thead>
       </tr>
       <%users.each do |user|%>
@@ -27,8 +29,8 @@
             <td><%= user.direccion %></td>
             <td><%= user.fecha_nacimiento %></td>
             <td><%= user.numero_contacto %></td>
-            <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-            <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+            <td><%= link_to '', edit_user_path(user) ,class:"fa fa-user-edit fa-lg"%> </td>
+            <td><%= link_to "", admin_destroy_user_path(user), method: :delete, data: { confirm: "Confirme para elimnar?" } , class:"fas fa-user-times fa-lg"%></td>
           <% end %>
          <% end %>
        <%end%>
@@ -43,26 +45,30 @@
       <tr>
         <th>id</td>
         <th>email</th>
-        <th>nombre</th>
-        <th>direccion</th>
-        <th>Profesional</th>
-        <th>Descripcion</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Nacimiento</th>
+        <th>Movil</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
     <thead>
-  <tr>
+
     <%users.each do |user|%>
       <%if user.role == "professional" %>
+        <tr>
         <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= user.nombre %></td>
         <td><%= user.direccion %></td>
         <td><%= user.fecha_nacimiento %></td>
         <td><%= user.numero_contacto %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-        <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+        <td><%= link_to '', edit_user_path(user) ,class:"fa fa-user-edit fa-lg"%> </td>
+        <td><%= link_to "", admin_destroy_user_path(user), method: :delete, data: { confirm: "Confirme para eliminar?" } , class:"fas fa-user-times fa-lg"%></td>
+          </tr>
       <% end %>
     <% end %>
-  </tr>
+
  </table>
 </div>
 <div class="container col-12">
@@ -74,8 +80,11 @@
         <th>email</th>
         <th>nombre</th>
         <th>direccion</th>
-        <th>Profesional</th>
-        <th>Descripcion</th>
+        <th>Nacimiento</th>
+        <th>Movil</th>
+
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tr>
@@ -87,8 +96,8 @@
           <td><%= user.direccion %></td>
           <td><%= user.fecha_nacimiento %></td>
           <td><%= user.numero_contacto %></td>
-          <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-          <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+          <td><%= link_to '', edit_user_path(user) ,class:"fa fa-user-edit fa-lg"%> </td>
+          <td><%= link_to "", admin_destroy_user_path(user), method: :delete, data: { confirm: "Confirme para eliminar?" } , class:"fas fa-user-times fa-lg"%></td>
         <% end %>
       <% end %>
     </tr>
