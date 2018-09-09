@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
         @role = params[:role]
+          session[:role] = @role
     @user.build_client
     @user.build_professional
              end
@@ -17,14 +18,15 @@ def option
 end
   def create
     @user = User.new(user_params)
+@role  = session[:role] 
     if @user.save
       flash[:notice] = "Usuario creado con exito."
         redirect_to users_path
     else
-      flash[:notice] = "Problemas al registrar usuario, intenta nuevamente."
-
-      redirect_to users_option_path
-    end
+  
+        render 'new'
+    
+  end
   end
 
   def edit
