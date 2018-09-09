@@ -1,41 +1,39 @@
 
-
-<section>
+<section style="margin:0px;">
 
 
 <% if @professional.empty? %>
-<%= "no existen profesionales registrados registradas" %>
-
-
+<div class='alert alert-info' role='alert'>
+  No hay <strong>Profesionales</strong> registrados
+</div>
 <%else%>
 
-<h1>Profesionales registrados actualmente</h1>
+<h3>Profesionales registrados  </h3>
+
 <div class="table-resp-cont">
 
-  <table class="table table-striped table-dark table-resp">
-<tr class="bg-info">
-    <th>id</td>
-    <th>specialidad</th>
-    <th>inicio </th>
-    <th>final</th>
-    <th>contrato</th>
-    <th>profesional</th>
-
-  </tr>
+  <table class="table table-hover ">
+    <thead class="thead-dark">
+      <th>Nombre</th>
+      <th>Especialidad</th>
+      <th>Inicio </th>
+      <th>Termino de contrato</th>
+      <th>contrato</th>
+    </thead>
 
 
 <% @professional.each do |professional|  %>
-<tr class="bg-dark">
+<tr class="">
 
 
-  <td><%= professional.id %></td>
+  <td><%=  User.find(professional.user_id).nombre  %></td>
   <td><%= Specialty.find(professional.specialty_id).name %></td>
   <td><%= professional.start_contract %></td>
   <td><%= professional.end_contract %></td>
   <td><%= professional.type_contract %></td>
-  <td><%=  User.find(professional.user_id).nombre  %></td>
 
- 
+
+
 
  </tr>
 

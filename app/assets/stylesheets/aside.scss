@@ -13,104 +13,81 @@
 *= require dataTables/jquery.dataTables
  *= require_tree .
  */
-
-
-.aside-client{
-  background-color: rgba(13,180,34,10.8);
-  background-image: url("pizzarra.jpg");
-  position:fixed;
-  margin-top: 10px !important;
-  padding: 0px !important;
-  margin: 0px !important;
-
-
-}
-.grande{
-height: 1000px;
-
-}
-
-.aside-perfil{
-padding: 0px;
-}
-
-.imagen-aside{
-border-radius:50%;
-margin-bottom:60px;
-margin-top:30px;
-}
-.caja-icono{
-  width: 20px;
-  height: 14px;
-  padding:12px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.aside-client:hover{
+.aside-container{
   background-color: #212529;
-  margin: 0px !important;
-  padding: 0px !important;
-  margin: 0px !important;
+  height: 800px;
 }
-.aside-items-client{
-  color:white;
+.aside-items{
   text-align: center;
-  text-decoration: none;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 15px;
-background-image: none;
-  //background-color: #343a40;
-  margin-top: 3px;
-
-
+  margin-left: 25px;
 }
-.aside-items-client:hover{
-  color:white;
-  text-align: center;
-  text-decoration: none;
-  background-color: #343a40;
+.imagen{
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px 50px 50px 50px;
 }
-.aside-link-client{
+
+.aside-icons{
+  color: rgb(83, 83, 83);
+  font-size: 20px;
+}
+.aside-icons:hover{
   color: white;
-background-image: initial;
-background-repeat: initial;
-background-position: initial;
--webkit-border-radius: initial;
--moz-border-radius: initial;
-border-radius: initial;
-border-style: initial;
-border-width: initial;
-border-color: initial;
-background-color: initial;
-  text-decoration: none;
-  color:rgba(255, 255, 255, 0.5);
-  //font-family: sans-serif !important;
-
 }
-
-.aside-link-client:hover{
-
-  text-decoration: none;
-  color: white;
-
+@media screen and (max-width: 1400px){
+  .aside-container{
+    background-color: #212529;
+    height: 800px;
+  }
+  .aside-items{
+    text-align: center;
+    margin-left: 25px;
+  }
+  .imagen{
+    margin-top: 5px;
+    margin-left: 25px;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px 50px 50px 50px;
+  }
 }
-.aside-link-client:focus{
-
-outline: none;
-
+@media screen and (max-width: 1200px){
+  .aside-container{
+    background-color: #212529;
+    height: 800px;
+  }
+  .aside-items{
+    text-align: center;
+    margin-left: 20px;
+  }
+  .imagen{
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px 50px 50px 50px;
+  }
 }
-.table-resp-cont{
-	overflow-x: auto;
-	width: 100%;
-
-}
-.table-resp{
-
-	color: #444;
-	border-collapse: collapse; /* borde se junta con el otro*/
-	margin-left: auto;
-    margin-right: auto;
-    min-width: 1000px;
+@media screen and (max-width: 900px){
+  .aside-container{
+    background-color: #212529;
+    height: 800px;
+  }
+  .aside-items{
+    text-align: center;
+    margin-left: 10px;
+  }
+  .imagen{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px 50px 50px 50px;
+  }
 }

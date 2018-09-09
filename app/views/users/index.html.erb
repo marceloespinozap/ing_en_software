@@ -2,106 +2,95 @@
 
 
 
+<div class="container col-12">
+  <br>
+   <h3>Administradores</h3>
 
- <table class="" >
+   <table class="table table-hover ">
+     <tr>
+       <thead class="thead-dark">
+          <th>id</td>
+          <th>email</th>
+          <th>nombre</th>
+          <th>direccion</th>
+          <th>Profesional</th>
+          <th>Descripcion</th>
+        </thead>
+      </tr>
+      <%users.each do |user|%>
+      <tr>
+        <%if user.id != current_user.id %>
+          <%if user.role == "admin" %>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.nombre %></td>
+            <td><%= user.direccion %></td>
+            <td><%= user.fecha_nacimiento %></td>
+            <td><%= user.numero_contacto %></td>
+            <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+            <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+          <% end %>
+         <% end %>
+       <%end%>
+    </tr>
+  </table>
+</div>
+<div class="container col-12" >
 
- 	<h1>Administradores</h1>
-
- <tr>
-    <th>id</td>
-    <th>email</th>
-    <th>nombre</th>
-    <th>direccion</th>
-    <th>Profesional</th>
-    <th>Descripcion</th>
-
-</tr>
-
-<%users.each do |user|%>
-
- <tr>
-
-<%if user.id != current_user.id %>
-<%if user.role == "admin" %>
-  <td><%= user.id %></td>
-  <td><%= user.email %></td>
-  <td><%= user.nombre %></td>
-  <td><%= user.direccion %></td>
-  <td><%= user.fecha_nacimiento %></td>
-  <td><%= user.numero_contacto %></td>
-  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
-  <% end %>
-<% end %>
-<%end%>
-</tr>
-
- <table class=" " >
-
-<h1>Profesionales</h1>
-
- <tr>
-    <th>id</td>
-    <th>email</th>
-    <th>nombre</th>
-    <th>direccion</th>
-    <th>Profesional</th>
-    <th>Descripcion</th>
-
-</tr>
-<tr>
-
-<%users.each do |user|%>
-
-<%if user.role == "professional" %>
-  <td><%= user.id %></td>
-  <td><%= user.email %></td>
-  <td><%= user.nombre %></td>
-  <td><%= user.direccion %></td>
-  <td><%= user.fecha_nacimiento %></td>
-  <td><%= user.numero_contacto %></td>
-  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+  <h3>Profesionales</h3>
+  <table class="table table-hover ">
+    <thead class="thead-dark">
+      <tr>
+        <th>id</td>
+        <th>email</th>
+        <th>nombre</th>
+        <th>direccion</th>
+        <th>Profesional</th>
+        <th>Descripcion</th>
+      </tr>
+    <thead>
+  <tr>
+    <%users.each do |user|%>
+      <%if user.role == "professional" %>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.nombre %></td>
+        <td><%= user.direccion %></td>
+        <td><%= user.fecha_nacimiento %></td>
+        <td><%= user.numero_contacto %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+        <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+      <% end %>
+    <% end %>
   </tr>
-
-<% end %>
-<% end %>
-</table>
-
- <table class="" >
-
-
-<h1>Clientes</h1>
-
- <tr>
-    <th>id</td>
-    <th>email</th>
-    <th>nombre</th>
-    <th>direccion</th>
-    <th>Profesional</th>
-    <th>Descripcion</th>
-
-</tr>
-<%users.each do |user|%>
-<tr>
-<%if user.role == "client" %>
-
-  <td><%= user.id %></td>
-  <td><%= user.email %></td>
-  <td><%= user.nombre %></td>
-  <td><%= user.direccion %></td>
-  <td><%= user.fecha_nacimiento %></td>
-  <td><%= user.numero_contacto %></td>
-  <td><%= link_to 'Editar', edit_user_path(user) %> </td>
-  <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
-
-<% end %>
-<% end %>
-</table>
-
-</tr>
-
-
-<p></p>
-<%= link_to "añadir usuario", new_user_path, :class =>"nav-link"%>
-
+ </table>
+</div>
+<div class="container col-12">
+  <h3>Clientes</h3>
+  <table class="table table-hover ">
+    <thead class="thead-dark">
+      <tr>
+        <th>id</td>
+        <th>email</th>
+        <th>nombre</th>
+        <th>direccion</th>
+        <th>Profesional</th>
+        <th>Descripcion</th>
+      </tr>
+    </thead>
+    <tr>
+      <%users.each do |user|%>
+        <%if user.role == "client" %>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.nombre %></td>
+          <td><%= user.direccion %></td>
+          <td><%= user.fecha_nacimiento %></td>
+          <td><%= user.numero_contacto %></td>
+          <td><%= link_to 'Editar', edit_user_path(user) %> </td>
+          <td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+</div>
