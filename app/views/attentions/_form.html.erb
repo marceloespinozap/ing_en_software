@@ -1,89 +1,91 @@
-<%= simple_form_for @attention do |f| %>
-
-<% @a=Client.all %>
-<% @b=Professional.all %>
 
 
-<% if @a.empty? && @b.empty?	%>
-<div class="alert alert-warning" role="alert"> no existen clientes registrados registradas. Primero debes crear a lo menos un perfil de cliente y un perfil de profesional </div>
 
-<% else %>
+  <%= simple_form_for @attention do |f| %>
 
-<% if @a.empty?	%>
-<%= "no existe clientes creados para recibir atencion" %>
-<%= "primero debes crear un cliente" %>
-<% else %>
-
-<% if @b.empty?	%>
-<div class='alert alert alert-info' role='alert'> No existen <strong>profesionales</strong> registrados para entregar atencion </div>
-
-<% else%>
-<%var = 1%>
+  <% @a=Client.all %>
+  <% @b=Professional.all %>
 
 
-<%= f.label :id_professional_ %>
-<% if current_user.role == "professional"%>
+  <% if @a.empty? && @b.empty?	%>
+    <div class="alert alert-info" role="alert"> no existen <strong>clientes,profesionales</strong> registrados.  </div>
+  <% else %>
+
+  <% if @a.empty?	%>
+
+    <div class="alert alert-info" role="alert"> no existe <strong>clientes </strong>creados para recibir atencion </div>
+
+  <% else %>
+
+  <% if @b.empty?	%>
+  <div class='alert alert alert-info' role='alert'> No existen <strong>profesionales</strong> registrados para entregar atencion </div>
+
+  <% else%>
+  <br>
+  <center>
+  <div class="col-12 comtainer">
+  <%var = 1%>
+
+    <h3>Crear nueva atencion</h3>
+
+  <%= f.label :id_professional_  %>
+  <% if current_user.role == "professional"%>
+    <% @b.each do |c| %>
+        <%if c.user_id == current_user.id %>
+        <%@id = c.id %>
+        <% var = 0%>
+    <%end%>
+    <%end%>
+
+    <%if var == 0 %>
+      <%= f.input :professional_id, :include_blank => false, collection: [[current_user.nombre,@id ]]  ,label: 'profesional' ,:input_html => { :class => 'form-control' }%>
+
+        <%= "tipo de usuario: Profesional" %>
+    <%else %>
+        <%= "aun no se ha añadido la informacion del profesional" %>
+    <% var = 1 %>
+    <% end %>
+
+
+  <% else %>
+  <%= f.select (:professional_id), :class=>"form-control"  do %>
   <% @b.each do |c| %>
-      <%if c.user_id == current_user.id %>
-      <%@id = c.id %>
-      <% var = 0%>
-  <%end%>
-  <%end%>
+    <% @professional = c.id %>
 
-  <%if var == 0 %>
-    <%= f.input :professional_id, :include_blank => false, collection: [[current_user.nombre,@id ]]  ,label: 'profesional' %>
+        <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id ) %>
+        <% end %>
+      <% end %>
+        <% end %>
 
-      <%= "tipo de usuario: Profesional" %>
-  <%else %>
-      <%= "aun no se ha añadido la informacion del profesional" %>
-  <% var = 1 %>
+  <br>
+
+      <%= f.label :id_cliente %>
+      	<%= f.select (:client_id) do %>
+
+       <% @a.each do |c| %>
+      	<% @client = c.id %>
+
+    	 <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
+      <% end %>
+      <% end %>
+
+
+
+
+  <br>
+    <%= f.label :Fecha_de_atencion_ %>
+    <%= f.date_field :attention_date , :class => 'form-control' %>
+    <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'Duracion de la atencion',:input_html => { :class => 'form-control' } %>
+    <%= f.text_area :description, size: "60x12", error: 'la descripcion no puede estar vacia',:class => 'form-control'   %>
+  <br>
+
+
+  <%= f.button :submit ,:class => 'form-control btn btn-success' %>
+
+
+  <%= link_to 'volver' , attentions_path%>
+
   <% end %>
-
-
-<% else %>
-<%= f.select (:professional_id) do %>
-<% @b.each do |c| %>
-  <% @professional = c.id %>
-
-      <%= content_tag(:option, User.find(Professional.find(@professional).user_id).nombre, value: c.id) %>
-      <% end %>
-    <% end %>
-      <% end %>
-
-<br>
-
-    <%= f.label :id_cliente %>
-    	<%= f.select (:client_id) do %>
-
-     <% @a.each do |c| %>
-    	<% @client = c.id %>
-
-  	 <%= content_tag(:option, User.find(Client.find(@client).user_id).nombre, value: c.id) %>
-    <% end %>
-    <% end %>
-
-
-
-
-<br>
-<%= f.label :Fecha_de_atencion_ %>
-<%= f.input :attention_date %>
-
-<br>
-      <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'fecha de la atencion' %>
-
-<br>
-
-      <%= f.input :description, label: 'Detallles de la atencion', error: 'la descripcion no puede estar vacia' %>
-
-<br>
-
-
-<%= f.button :submit %>
-
-
-<%= link_to 'volver' , attentions_path%>
-
-<% end %>
-<% end %>
-<% end %><% end %>
+  <% end %>
+  <% end %><% end %>
+</div>

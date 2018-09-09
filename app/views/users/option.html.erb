@@ -7,16 +7,17 @@
   <%p= 'professional'%>
   <%c='client'%>
   <div class="row">
+
     <div class="col-sm">
         <%= link_to "ADMIN ", new_user_path(:role => "admin"), :class =>"btn btn-danger"%>
     </div>
     <div class="col-sm">
-          <%= link_to "CLIENT ", new_user_path(:role => "client"), :class =>"btn btn-primary"%>
+        <%= link_to "CLIENT ", new_user_path(:role => "client"), :class =>"btn btn-primary"%>
     </div>
     <div class="col-sm">
-
         <%= link_to "PROFESIONAL ", new_user_path(:role => "professional"), :class =>"btn btn-success"%>
     </div>
+    
   </div>
 
 

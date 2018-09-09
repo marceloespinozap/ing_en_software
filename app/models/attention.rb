@@ -9,6 +9,7 @@ validate :fecha_de_atencion_debe_ser_en_pasado
 validates :attention_time, presence:{ message: "debe hora de atencion"}
 validates :description, presence: true
 
+validates :attention_date, uniqueness: { scope: [:professional_id, :client_id] }
 
 validates :professional_id, presence: true
 validates :client_id, presence: true

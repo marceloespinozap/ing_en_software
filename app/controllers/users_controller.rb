@@ -19,7 +19,7 @@ end
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Usuario creado con exito."
-      redirect_to attentions_path
+        redirect_to users_path
     else
       flash[:notice] = "Problemas al registrar usuario, intenta nuevamente."
 
@@ -49,7 +49,7 @@ end
 
     if @user.destroy
       flash[:notice] = "Usuario eliminado."
-      redirect_to attentions_path
+      redirect_to users_path
     end
   end
   private
