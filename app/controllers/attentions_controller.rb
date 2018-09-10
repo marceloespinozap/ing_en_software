@@ -70,7 +70,7 @@ end
 
 private
 def attention_params
-	params.require(:attention).permit(:professional_id, :client_id , :attention_date, :attention_time, :description)
+	params.require(:attention).permit(:professional_id, :client_id , :attention_date, :attention_time, :description, :detail)
  end
 
   def set_attention
