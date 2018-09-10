@@ -6,16 +6,15 @@
 <% if current_user.role != "admin" %>
 <% @role = current_user.role %>
 <%end%>
-</h1> 
-<h1><%= %> 
-</h1> 
-<h1><%= ( @role)%> 
-</h1> 
-<%= f.hidden_field :role , :value => @role %> 
+</h1>
+<h1><%= %>
+</h1>
+
+<%= f.hidden_field :role , :value => @role %>
 <div class="container ">
- 
- 
- 
+
+
+
   <div class="field">
     <%= f.input :nombre , autofocus: true,:input_html => { :class => 'form-control',:onchange=>"valida1()",:id=>"val1" } %>
 
@@ -26,7 +25,7 @@
   </div>
    <h6 style="color:red">
       <%= f.error :fecha_nacimiento %>
-</h6>  
+</h6>
   <div class="field">
     <%= f.input :direccion , autofocus: true,:input_html => { :class => 'form-control',:onchange=>"valida3()",:id=>"valida3" }%>
   </div>
@@ -36,35 +35,35 @@
   </div>
     <h6 style="color:red">
       <%= f.error :numero_contacto %>
-</h6>  
- 
+</h6>
+
   <div class="field">
     <%= f.input :email, autofocus: true, autocomplete: "email" ,:input_html => { :class => 'form-control',:onchange=>"valida5()",:id=>"valida5" }%>
   </div>
 
-  <div class="field"> 
+  <div class="field">
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <%= f.input :password, autocomplete: "off" ,:input_html => { :class => 'form-control' ,:onchange=>"valida6()",:id=>"valida6"}%>
-  </div> 
+  </div>
 
   <div class="field">
     <%= f.input :password_confirmation, autocomplete: "off",:input_html => { :class => 'form-control' ,:onchange=>"valida7()",:id=>"valida7"} %>
   </div>
-  <div> 
-    </div> 
- 
+  <div>
+    </div>
 
-<%if @role == 'client' %> 
-<%= f.simple_fields_for :client do |client| %> 
+
+<%if @role == 'client' %>
+<%= f.simple_fields_for :client do |client| %>
 <%= client.input :prevision, :include_blank => false, collection: [['fonasa',1], ['otro', 2]], error: 'la descripcion no puede estar vacia',  validate: { presence: true, uniqueness: true },:input_html => { :class => 'form-control' }  %>
       <% end %>
- 
+
 
 <% end %>
 <%if @role == 'professional' %>
- 
+
 
       <%= f.simple_fields_for :professional do |professional| %>
 
@@ -76,21 +75,20 @@
 <%= professional.date_field :start_contract ,:class=>'form-control' %>
      <h6 style="color:red">
       <%= professional.error :start_contract %>
-</h6>  
+</h6>
 <p>Fin contrato</p>
 <%= professional.date_field :end_contract,   presence: true,:class=>'form-control' %>
     <h6 style="color:red">
       <%= professional.error :end_contract %>
-</h6>  
-   
+</h6>
 
-      <% end %> 
+
+      <% end %>
 
 
    <% end %>
 <br>
   <div class="actions">
-<%= f.button :submit ,:class=>"form-control btn-primary btn" %>
+<%= f.button :submit ,:class=>"form-control btn-primary btn",:value=>"Guardar" %>
   </div>
 <% end %>
- 
