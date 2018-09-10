@@ -138,8 +138,12 @@
 
 
   </table>
+<div class="container">
+    <%= link_to "todas", attentions_clients_path,:class =>"btn btn-success"%>
+    <br>
+    <br>
+</div>
 
-<%= link_to "todas", attentions_clients_path%>
 
  <% if current_user.role == "professional"%>
  <li class="nav-item">
