@@ -1,10 +1,9 @@
 
 
-  <%= simple_form_for @attention do |f| %>
+  <%= simple_form_for (@attention)  do |f| %>
 
   <% @a=Client.all %>
   <% @b=Professional.all %>
-
 
   <% if @a.empty? && @b.empty?	%>
     <div class="alert alert-info" role="alert"> no existen <strong>clientes,profesionales</strong> registrados.  </div>
@@ -60,9 +59,19 @@
     <% end %>
   <br>
     <%= f.label :Fecha_de_atencion_ %>
-    <%= f.date_field :attention_date , :class => 'form-control' %>
+
+    <%= f.date_field :attention_date , :include_blank => false,:max=> Date.today ,:value => Time.now.strftime('%Y-%m-%d') , :class => 'form-control' %>
+    <h6 style="color:red">
+      <%= f.error :attention_date %>
+</h6>
+
     <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'Duracion de la atencion',:input_html => { :class => 'form-control' } %>
+
+
     <%= f.text_area :description, size: "30x6",:class => 'form-control' %>
+    <h6 style="color:red">
+      <%= f.error :description %>
+</h6>
   <br>
 
 

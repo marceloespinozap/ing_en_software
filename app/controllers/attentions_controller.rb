@@ -22,26 +22,22 @@ end
 
   def show
       @attention = Attention.find(params[:id])
-
-
   end
 
   def destroy
-  @attention = Attention.find(params[:id])
-   @attention.destroy
-  redirect_to attentions_path
-
-end
+     @attention = Attention.find(params[:id])
+     @attention.destroy
+     redirect_to attentions_path
+  end
 
   def new
   	@attention = Attention.new
-
   end
 
 
   def delete
     @attention.destroy
-    end
+  end
 
 
 

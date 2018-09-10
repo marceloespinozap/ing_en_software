@@ -13,7 +13,6 @@ gem "cocoon"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'bootstrap', '~> 4.1.0'
-
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 

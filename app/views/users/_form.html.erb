@@ -18,19 +18,25 @@
  
   <div class="field">
     <%= f.input :nombre , autofocus: true,:input_html => { :class => 'form-control',:onchange=>"valida1()",:id=>"val1" } %>
+
   </div>
   <div class="field">
     <p>*Fecha de nacimiento</p>
-    <%= f.date_field :fecha_nacimiento , autofocus: true,:class=>"form-control",:onchange=>"valida2()",:id=>"valida2"%>
+    <%= f.date_field :fecha_nacimiento , :max=> Date.today ,:value => Time.now.strftime('%Y-%m-%d'),autofocus: true,:class=>"form-control",:onchange=>"valida2()",:id=>"valida2"%>
   </div>
-
-    <div class="field">
+   <h6 style="color:red">
+      <%= f.error :fecha_nacimiento %>
+</h6>  
+  <div class="field">
     <%= f.input :direccion , autofocus: true,:input_html => { :class => 'form-control',:onchange=>"valida3()",:id=>"valida3" }%>
   </div>
     <div class="field">
     <%= f.label :numero_contacto %>
     <%= f.text_field :numero_contacto , autofocus: true ,:class=>"form-control",:onchange=>"valida4()",:id=>"valida4"%>
   </div>
+    <h6 style="color:red">
+      <%= f.error :numero_contacto %>
+</h6>  
  
   <div class="field">
     <%= f.input :email, autofocus: true, autocomplete: "email" ,:input_html => { :class => 'form-control',:onchange=>"valida5()",:id=>"valida5" }%>
