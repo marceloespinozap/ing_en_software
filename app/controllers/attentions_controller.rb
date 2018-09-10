@@ -59,6 +59,7 @@ end
 
 
 def update
+ @attention = Attention.find(params[:id])
  respond_to do |format|
       if @attention.update(attention_params)
         format.html {redirect_to attentions_path(@attention), notice: 'Se Actualizaron los datos'}

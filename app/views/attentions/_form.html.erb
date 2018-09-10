@@ -1,6 +1,6 @@
 
 
-  <%= simple_form_for (@attention)  do |f| %>
+  <%= simple_form_for (@attention),remote: true  do |f| %>
 
   <% @a=Client.all %>
   <% @b=Professional.all %>
@@ -34,7 +34,7 @@
         <%= "tipo de usuario: Profesional" %>
       <%else %>
         <%= "aun no se ha añadido la informacion del profesional" %>
-        <% var = 1 %>
+        <% var = 1 %> 
       <% end %>
     <% else %>
   <%= f.select (:professional_id  ) do %>
