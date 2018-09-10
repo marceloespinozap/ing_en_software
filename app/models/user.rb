@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :nombre, length: { minimum: 2, message: "Debe tener a lo menos 2 letras el nombre." }
   validates :nombre, format: { with: /[A-Za-z]/ , message: "solo puede contener letras." }
   
+  validate :edad_segun_rol
 
 
   validates :fecha_nacimiento, presence:{ message: "debe ingresar una fecha de nacimiento"}
@@ -31,5 +32,18 @@ class User < ApplicationRecord
   	if fecha_nacimiento.present? && fecha_nacimiento >= Date.today
       errors.add(:fecha_nacimiento, "debe ser anterior a la fecha de hoy")
     end
+end
+
+
+def edad_segun_rol
+if fecha_nacimiento.present? && role =="professional" && fecha_nacimiento >= 18.year.ago
+          errors.add(:fecha_nacimiento, 'Profesionales deben ser mayores de 18 años.')
+  end
+if fecha_nacimiento.present? && role =="client" && fecha_nacimiento>= 3.year.ago
+          errors.add(:fecha_nacimiento, 'clientes deben ser mayores de 3 años.')
+  end
+
+
+
 end
 end

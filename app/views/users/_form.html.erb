@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <p>*Fecha de nacimiento</p>
-    <%= f.date_field :fecha_nacimiento , :max=> Date.today ,:value => Time.now.strftime('%Y-%m-%d'),autofocus: true,:class=>"form-control",:onchange=>"valida2()",:id=>"valida2"%>
+    <%= f.date_field :fecha_nacimiento , :max=> Date.today-18 ,autofocus: true,:class=>"form-control",:onchange=>"valida2()",:id=>"valida2"%>
   </div>
    <h6 style="color:red">
       <%= f.error :fecha_nacimiento %>

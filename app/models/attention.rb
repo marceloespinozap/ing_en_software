@@ -8,13 +8,17 @@ validate :fecha_de_atencion_debe_ser_en_pasado
 
 
 validates :attention_time, presence:{ message: "debe hora de atencion"}
-validates :description, :presence  => { message: "No puede dejarse vacío" }
 
 validates :attention_date, uniqueness: { scope: [:professional_id, :client_id],message: 'el profesional y el paciente ya tienen una hora agendada este dia ' }
 validates :attention_date, presence:{ message: "debe hora de atencion"}
 
 validates :professional_id, presence: true
 validates :client_id, presence: true
+
+validates :description, :presence  => { message: "No puede dejarse vacío" }
+validates :detail, :presence  => { message: "No puede dejarse vacío" }
+
+
 
 
 
