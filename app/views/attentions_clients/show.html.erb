@@ -1,0 +1,23 @@
+<h1>atenciones de cliente</h1>
+<%@x='0'%>
+
+
+<%@attention1.each do |a| %>
+<% if a.client_id == @attention.id %>
+<%@x='1'%>
+<%=User.find(Professional.find(a.professional_id).user_id).nombre %> <br>
+<%=a.description %><br>
+<%=a.detail %>
+<br>
+<br>
+<br>
+
+
+<%end%>
+
+
+
+<%end%>
+<%if @x == '0'%>
+<%="no existen atenciones de este cliente" %>
+<%end %>

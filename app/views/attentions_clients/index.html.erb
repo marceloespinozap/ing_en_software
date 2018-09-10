@@ -1,0 +1,17 @@
+<h1>Seleccione cliente</h1>
+
+<%@user.each do |a| %>
+
+<%if a.role=='client'%>
+<%@client.each do |b| %>
+<%if b.user_id == a.id %>
+  <td><%=  a.nombre  %></td>
+  <td><%=  b.user_id  %></td>
+
+    <td><%= link_to '', attentions_client_path(b),class:"far fa-eye"%> </td><br>
+<%end%>
+<%end%>
+
+<%end%>
+
+<% end %>

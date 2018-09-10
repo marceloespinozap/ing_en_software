@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'attentions/pdf/:id' => "attentions#pdf", :as =>'create_pdf'
   get 'users/option'
  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
@@ -27,6 +28,10 @@ Rails.application.routes.draw do
 devise_for :users do 
   get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
 end
+resources :attentions_clients
+
+
+
  resources :users, :controller => "users", :except => [:show] 
   resources :attentions
     resources :clients

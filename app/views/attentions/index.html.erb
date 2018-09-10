@@ -138,6 +138,9 @@
 
 
   </table>
+
+<%= link_to "todas", attentions_clients_path%>
+
  <% if current_user.role == "professional"%>
  <li class="nav-item">
             <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>

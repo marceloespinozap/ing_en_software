@@ -13,13 +13,14 @@ validate :fecha_termino_debe_ser_anterior_a_hoy
 
  
 
+
 def fecha_termino_debe_ser_anterior_a_hoy
-  	if end_contract &&  end_contract <= Date.today
+  	if end_contract.present? &&  end_contract <= Date.today
       errors.add(:end_contract, "fecha de termino de contrato no puede ser anterior a  hoy")
     end
 end
  def fecha_termino_debe_ser_anterior_a_inicio
-  	if   end_contract && start_contract  && (end_contract <= start_contract)
+  	if   end_contract.present? && start_contract.present?  && (end_contract <= start_contract)
       errors.add(:end_contract, "fecha de termino de contrato debe ser anterior a la fecha de inicio")
     end
 end
