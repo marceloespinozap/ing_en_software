@@ -68,13 +68,13 @@
     <%= f.input :attention_time, :include_blank => false, collection: [['30 minutos',0.5], ['1 hora', 1], ['1 hora 30 minutos', 1.5] , ['2 horas', 2]  ],label: 'Duracion de la atencion',:input_html => { :class => 'form-control' } %>
 
 
-    <%= f.input :description %>
+    <%= f.input :description ,:input_html=> {class: 'form-control',placeholder:"Descripcion"}%>
 
 
 
+<br>
 
-
-    <%=f.text_area :details, size: "30x6",:class => 'form-control' %>
+    <%=f.text_area :details, size: "30x6",:class => 'form-control',:placeholder =>"Detalle"%>
     <h6 style="color:red">
       <%= f.error :description %>
 </h6>
