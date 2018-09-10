@@ -25,6 +25,10 @@
           <th>VER</th>
 
 <% end %>
+<% if can? :read , :attentions%>
+          <th>PDF</th>
+
+<% end %>
  <% if can? :update, :attentions %>
     <th>EDITAR</th>
 
@@ -56,7 +60,7 @@
     <% if can? :read, :attentions %>
   <td><%= link_to 'Ver', attention_path(attention)%> </td>
 
-    <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+    <td><%= link_to '', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
 
 <% end %>
  <% if can? :update, :attentions %>
@@ -87,8 +91,8 @@
   <td><%=  User.find(Client.find(@client).user_id).nombre  %></td>
   <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
   <td><%= attention.description %></td>
-  <td><%= link_to 'Ver', attention_path(attention)%> </td>
-  <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+  <td><%= link_to '', attention_path(attention),class:"far fa-eye"%> </td>
+  <td><%= link_to '', create_pdf_path(attention , :format => :pdf), target: :_blank ,class:"far fa-file-pdf"%> </td>
   <td><%= link_to 'Ver profesional', professional_path(attention.professional_id)%> </td>
 
 
@@ -113,16 +117,16 @@
   <td><%=  User.find(Professional.find(@professional).user_id).nombre  %></td>
   <td><%= attention.description %></td>
     <% if can? :read, :attentions %>
-  <td><%= link_to 'Ver', attention_path(attention)%> </td>
+  <td><%= link_to '', attention_path(attention),class:"far fa-eye"%> </td>
 
-    <td><%= link_to 'pdf', create_pdf_path(attention , :format => :pdf), target: :_blank%> </td>
+    <td><%= link_to '', create_pdf_path(attention , :format => :pdf), target: :_blank,class:"fas fa-file-pdf "%> </td>
 
 <% end %>
  <% if can? :update, :attentions %>
-  <td><%= link_to 'Editar', edit_attention_path(attention) %> </td>
+  <td><%= link_to '', edit_attention_path(attention),class:"fas fa-pen" %> </td>
 <% end %>
  <% if can? :delete, :attentions %>
-  <td><%= link_to 'Eliminar', attention ,   :method => :delete,  data: { confirm: "estas seguro?"} %></td>
+  <td><%= link_to '', attention ,   :method => :delete,  data: { confirm: "estas seguro?"},class:"fas fa-trash" %></td>
 <% end %>
  </tr>
 

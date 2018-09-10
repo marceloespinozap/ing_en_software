@@ -20,7 +20,7 @@
 
       <div class="col-sm-1 aside-container" id="Switch" >
         <div class="circulo">
-          <img src="/logo.jpg" class="imagen fa-spin" alt="">
+          <img src="/logo.jpg" class="imagen " alt="">
         </div>
         <div class="">
           <br><br><br>
@@ -28,19 +28,20 @@
 
         <ul  class="navbar-nav mr-auto">
         <li class="aside-items">
-          <%= link_to "atenciones ", attentions_path, :class =>"",:id => "Primero"%>
+          <%= link_to " ", attentions_path, :class =>"fas fa-book aside-icons",:id => "Primero"%>
         </li>
+        <br>
 
        <li class="aside-items">
-          <%= link_to "editar usuario ", edit_user_path(current_user.id), :class =>"aside-link-client",:id => "Primero"%>
+          <%= link_to "  ", edit_user_path(current_user.id), :class =>"fa fa-user-edit  aside-icons",:id => "Primero"%>
         </li>
 
        </ul>
       </div>
 
-      <div class="col-sm-10" id="otro" style="padding-left:0px !important;">
+      <div class="col-sm-11" id="otro" style="padding-left:0px !important;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-           <a class="navbar-brand" href="#">Navbar</a>
+           <a class="navbar-brand" href="#">CpConstruyamos</a>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
@@ -52,13 +53,8 @@
 
 
 
-      
 
-                    <% if current_user.role == "professional"%>
-                       <li class="nav-item col-md top_padding_list">
-                         <%= link_to " Profesional", attentions_path %>
-                       </li>
-                    <% end %>
+
 
                     <% if current_user.role == "admin"%>
                      <li class="nav-item nav-link disabled">
