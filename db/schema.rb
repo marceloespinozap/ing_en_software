@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180909220954) do
     t.datetime "updated_at", null: false
     t.bigint "professional_id"
     t.bigint "client_id"
+    t.text "details"
     t.index ["client_id"], name: "index_attentions_on_client_id"
     t.index ["professional_id"], name: "index_attentions_on_professional_id"
   end
