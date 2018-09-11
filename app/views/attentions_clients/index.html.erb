@@ -6,7 +6,6 @@
 <%@client.each do |b| %>
 <%if b.user_id == a.id %>
   <td><%=  a.nombre  %></td>
-  <td><%=  b.user_id  %></td>
 <%@attention.each do |x| %>
 <%if x.client_id == b.id %>
 <% @cons = '1'%>

@@ -4,7 +4,7 @@
 
 
 <%@attention1.each do |a| %>
-<% if a.client_id == @attention.id %>
+<% if a.client_id == @client.id %>
 <%@x='1'%>
 <%=User.find(Professional.find(a.professional_id).user_id).nombre %> <br>
 <%=a.description %><br>
