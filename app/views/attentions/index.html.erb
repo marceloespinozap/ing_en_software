@@ -139,7 +139,10 @@
 
   </table>
 <div class="container">
+   <% if can? :update, :attentions %>
+
     <%= link_to "todas", attentions_clients_path,:class =>"btn btn-success"%>
+          <% end %>
     <br>
     <br>
 </div>

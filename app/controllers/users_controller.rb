@@ -18,20 +18,22 @@ def option
 end
   def create
     @user = User.new(user_params)
-@role  = session[:role] 
+@role  = session[:role]
     if @user.save
       flash[:notice] = "Usuario creado con exito."
         redirect_to users_path
     else
-  
+
         render 'new'
-    
+
   end
   end
 
   def edit
+    @role = params[:role]
+
     @user = User.find(params[:id])
-    
+
   end
 
   def update
