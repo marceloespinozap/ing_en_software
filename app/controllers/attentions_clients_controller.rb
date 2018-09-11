@@ -6,6 +6,7 @@ class AttentionsClientsController < ApplicationController
   end
 
   def show
+  	  	@attention = Attention.all
 
   	      @attention = Attention.find(params[:id])
   	  	  	@attention1 = Attention.all.order(attention_date: :asc)

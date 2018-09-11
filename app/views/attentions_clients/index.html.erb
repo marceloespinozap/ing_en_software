@@ -1,14 +1,22 @@
 <h1>Seleccione cliente</h1>
 
 <%@user.each do |a| %>
-
-<%if a.role=='client'%>
+<%@cons='0'%>
+<br><%if a.role=='client'%>
 <%@client.each do |b| %>
 <%if b.user_id == a.id %>
   <td><%=  a.nombre  %></td>
   <td><%=  b.user_id  %></td>
+<%@attention.each do |x| %>
+<%if x.client_id == b.id %>
+<% @cons = '1'%>
+<%end%>
+<%end%>
 
-    <td><%= link_to '', attentions_client_path(b),class:"far fa-eye"%> </td><br>
+<% if @cons =='1' %>
+    <td><%= link_to '', attentions_client_path(b),class:"far fa-eye"%> </td>
+
+<%end%>
 <%end%>
 <%end%>
 
