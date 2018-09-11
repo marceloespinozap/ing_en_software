@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :nombre,  presence:{ message: "debe ingresar un nombre"}
   validates :nombre, length: { minimum: 2, message: "Debe tener a lo menos 2 letras el nombre." }
 
-  validates :nombre, format: { :with => /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/  , message: "solo puede contener letras." }
+  validates :nombre, format: { :with =>/\A[a-zA-Z]+\z/, message: "solo puede contener letras." }
 
   validate :edad_segun_rol
 
