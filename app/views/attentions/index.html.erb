@@ -146,10 +146,10 @@
 
 
  <% if current_user.role == "professional"%>
- <li class="nav-item">
-            <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"nav-link"%>
+ <div class="container">
+            <%= link_to "Crear una nueva atencion", new_attention_path, :class =>"btn btn-primary"%>
 
-          </li>
+          </div>
       <% end %>
        <% if current_user.role == "admin"%>
 <div class="container">
