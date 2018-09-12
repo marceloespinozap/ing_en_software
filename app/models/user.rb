@@ -40,11 +40,12 @@ def edad_segun_rol
 if fecha_nacimiento.present? && role =="professional" && fecha_nacimiento >= 18.year.ago
           errors.add(:fecha_nacimiento, 'Profesionales deben ser mayores de 18 años.')
   end
+if fecha_nacimiento.present?  && fecha_nacimiento < 98.year.ago
+          errors.add(:fecha_nacimiento, 'deben estar vivos...')
+  end
 if fecha_nacimiento.present? && role =="client" && fecha_nacimiento>= 3.year.ago
           errors.add(:fecha_nacimiento, 'clientes deben ser mayores de 3 años.')
   end
-
-
 
 end
 end

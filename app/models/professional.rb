@@ -2,16 +2,16 @@ class Professional < ApplicationRecord
 	has_many :attentions
 	belongs_to :user
 	has_one :specialty
-	
+
 	validates :start_contract, presence:{ message: "debe ingresar inicio de contrato" }
 	validates :end_contract, presence:{ message: "debe ingresar inicio de contrato" }
 
    validates_numericality_of :type_contract, only_integer: true
 
   validate :fecha_termino_debe_ser_anterior_a_inicio
-validate :fecha_termino_debe_ser_anterior_a_hoy
+	validate :fecha_termino_debe_ser_anterior_a_hoy
 
- 
+
 
 
 def fecha_termino_debe_ser_anterior_a_hoy
